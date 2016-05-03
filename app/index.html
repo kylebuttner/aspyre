@@ -11,6 +11,10 @@
 
 </head>
   <body ng-controller='GoalbusterController as controller'>
+    <div>
+      <input id="new-goal-name" type="text" ng-model="goalText">
+      <button id='add-goal-button' ng-click="controller.addNewGoal(goalText)">Add goal</button>
+    </div>
     <div id='goals'>
       <p ng-repeat='goal in controller.goals'>
         {{ goal }}

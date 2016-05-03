@@ -13,5 +13,15 @@ describe('Goalbuster App', function() {
     expect(goals.last().getText()).toEqual('Goal 3');
   });
 
+  it('displays an inputted goal', function() {
+    browser.get('/');
+    $('#new-goal-name').sendKeys("NewGoal");
+    $('#add-goal-button').click();
+    var goals = $$('#goals p').last().getText();
+    expect(goals).toMatch('NewGoal');
+  });
+
+
+
 
 });

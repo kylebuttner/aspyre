@@ -11,4 +11,9 @@ describe('GoalbusterController', function() {
   it('initializes with a goal', function() {
     expect(ctrl.goals).toEqual(["Goal 1", "Goal 2", "Goal 3"]);
   });
+
+  it('can add a new goal', function() {
+    ctrl.addNewGoal('NewGoal');
+    expect(ctrl.goals.pop()).toEqual('NewGoal');
+  });
 });
