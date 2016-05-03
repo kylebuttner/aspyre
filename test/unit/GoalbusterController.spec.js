@@ -3,17 +3,22 @@ describe('GoalbusterController', function() {
 
   var ctrl;
 
-  beforeEach(inject(function($controller) {
+  beforeEach(inject(function($controller, _GoalFactory_) {
     ctrl = $controller('GoalbusterController');
+    GoalFactory = _GoalFactory_;
   }));
 
 
   it('initializes with a goal', function() {
-    expect(ctrl.goals).toEqual(["Goal 1", "Goal 2", "Goal 3"]);
+    var goal1 = new GoalFactory("Goal 1");
+    var goal2 = new GoalFactory("Goal 2");
+    var goal3 = new GoalFactory("Goal 3");
+    expect(ctrl.goals).toEqual([goal1, goal2, goal3]);
   });
 
   it('can add a new goal', function() {
     ctrl.addNewGoal('NewGoal');
-    expect(ctrl.goals.pop()).toEqual('NewGoal');
+    var goal = new GoalFactory('NewGoal');
+    expect(ctrl.goals.pop()).toEqual(goal);
   });
 });
