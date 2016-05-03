@@ -1,4 +1,4 @@
-goalbusterApp.controller('GoalbusterController', [ 'GoalFactory', function(GoalFactory) {
+goalbusterApp.controller('GoalbusterController', ['GoalFactory','GoalService', function(GoalFactory, GoalService) {
   var self = this;
 
   self.goals = [new GoalFactory("Goal 1"),
