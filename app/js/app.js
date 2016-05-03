@@ -1,1 +1,1 @@
-var  = angular.module('', []);
+var goalbusterApp = angular.module('goalbusterApp', []);
