@@ -6,9 +6,15 @@
 
   <script src="bower_components/angular/angular.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/goalsController.js"></script>
+
 
 </head>
-  <body>
-
+  <body ng-controller='GoalbusterController as controller'>
+    <div id='goals'>
+      <p ng-repeat='goal in controller.goals'>
+        {{ goal }}
+      </p>
+    </div>
   </body>
 </html>
