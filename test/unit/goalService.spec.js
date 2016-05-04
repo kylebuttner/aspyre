@@ -1,7 +1,9 @@
+"use strict"
+
 describe('GoalService', function() {
   beforeEach(module('goalbusterApp'));
 
-  var goalService, GoalFactory, httpBackend;
+  var GoalService, GoalFactory, httpBackend;
   var apiURL = "http://goalbuster-api.herokuapp.com/";
   var goalsData = [{name: "learn piano"}, {name: "finish book"}, {name: "more sport"} ]
 

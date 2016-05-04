@@ -1,3 +1,5 @@
+"use strict"
+
 describe('GoalFactory', function() {
   beforeEach(module('goalbusterApp'));
 
