@@ -6,6 +6,7 @@ describe('GoalService', function() {
   var GoalService, GoalFactory, httpBackend;
   var apiURL = "http://goalbuster-api.herokuapp.com/";
   var goalsData = [{name: "learn piano"}, {name: "finish book"}, {name: "more sport"} ]
+  var goal = {name: "new goal"};
 
   beforeEach(inject(function(_GoalService_, _GoalFactory_, $httpBackend){
     GoalService = _GoalService_;
@@ -24,11 +25,24 @@ describe('GoalService', function() {
     httpBackend.flush();
   });
 
-  fit ('sends the right arguments to api', function(goals){
-    var goal1 = new GoalFactory("learn piano");
+  it('post request takes an argument', function(){
+    spyOn(GoalService, 'postGoal');
+    GoalService.postGoal(goal);
+    expect(GoalService.postGoal).toHaveBeenCalledWith(goal);
+  })
 
-    GoalService.postGoalsToApi(goal1);
-    expect(httpBackend).toHaveBeenCalledWith(goal1);
-
+  it ('sends a post request', function(){
+    httpBackend.expectPOST(apiURL + 'goals').respond(201, 'success');
+    GoalService.postGoal(goal).then(function(response){
+      expect(response.status).toEqual(201);
+    });
   });
+
+  // fit ('sends the right arguments to api', function(goals){
+  //   var goal1 = new GoalFactory("learn piano");
+  //
+  //   GoalService.postGoalsToApi(goal1);
+  //   expect(httpBackend).toHaveBeenCalledWith(goal1);
+  //
+  // });
 });

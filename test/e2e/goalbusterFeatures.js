@@ -35,6 +35,6 @@ beforeEach(function(){
   });
 
   afterEach(function(){
-   mock.teardown(); 
+   mock.teardown();
   })
 });

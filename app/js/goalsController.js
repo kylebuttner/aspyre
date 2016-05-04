@@ -1,20 +1,18 @@
 "use strict"
 
-goalbusterApp.controller('GoalbusterController', ['GoalFactory','GoalService', function(GoalFactory, GoalService) {
+goalbusterApp.controller('GoalbusterController', ['$q', 'GoalFactory','GoalService', function($q, GoalFactory, GoalService) {
   var self = this;
-  self.goals = [];
 
+  self.goals = []
 
   GoalService.getAll().then(_saveGoals)
 
   function _saveGoals(response) {
-    return self.goals = response
+    self.goals = response
   }
 
   self.addNewGoal = function(newGoal) {
     self.goals.push(new GoalFactory(newGoal));
   };
-
-
 
 }]);

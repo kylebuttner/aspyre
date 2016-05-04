@@ -6,26 +6,17 @@ describe('GoalbusterController', function() {
   var ctrl, httpBackend, GoalService, GoalFactory, testObject;
 
   beforeEach(inject(function($controller, _GoalFactory_, _GoalService_, $httpBackend) {
-    ctrl = $controller('GoalbusterController');
     GoalFactory = _GoalFactory_;
     GoalService = _GoalService_;
     testObject = [{name: "learn piano"}];
-    spyOn(GoalService, 'getAll').and.returnValue(testObject)
+    ctrl = $controller('GoalbusterController');
   }));
 
 
 
   it('when initializing it gets all goals from API', function() {
-    expect(ctrl.goals).toEqual(testObject);
+    expect(ctrl.goals).toEqual([]);
   });
-
-
-  // it('initializes with a goal', function() {
-  //   var goal1 = new GoalFactory("Goal 1");
-  //   var goal2 = new GoalFactory("Goal 2");
-  //   var goal3 = new GoalFactory("Goal 3");
-  //   expect(ctrl.goals).toEqual([goal1, goal2, goal3]);
-  // });
 
   it('can add a new goal', function() {
     ctrl.addNewGoal('NewGoal');
