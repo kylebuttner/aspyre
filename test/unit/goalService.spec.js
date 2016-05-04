@@ -19,21 +19,21 @@ describe('GoalService', function() {
     var goal1 = new GoalFactory("learn piano");
     var goal2 = new GoalFactory("finish book");
 
-    GoalService.getAll().then(function(goals){
+    GoalService.getAllFromApi().then(function(goals){
       expect(goals).toContain(goal1, goal2)
     });
     httpBackend.flush();
   });
 
   it('post request takes an argument', function(){
-    spyOn(GoalService, 'postGoal');
-    GoalService.postGoal(goal);
-    expect(GoalService.postGoal).toHaveBeenCalledWith(goal);
+    spyOn(GoalService, 'postGoalToApi');
+    GoalService.postGoalToApi(goal);
+    expect(GoalService.postGoalToApi).toHaveBeenCalledWith(goal);
   })
 
   it ('sends a post request', function(){
     httpBackend.expectPOST(apiURL + 'goals').respond(201, 'success');
-    GoalService.postGoal(goal).then(function(response){
+    GoalService.postGoalToApi(goal).then(function(response){
       expect(response.status).toEqual(201);
     });
   });

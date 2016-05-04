@@ -19,8 +19,23 @@ describe('GoalbusterController', function() {
   });
 
   it('can add a new goal', function() {
-    ctrl.addNewGoal('NewGoal');
-    var goal = new GoalFactory('NewGoal');
-    expect(ctrl.goals.pop()).toEqual(goal);
+    spyOn(GoalService, "postGoalToApi");
+    ctrl.addNewGoal(testObject)
+    expect(GoalService.postGoalToApi).toHaveBeenCalledWith(testObject);
+
   });
+
+  it('refreshs the list of goals', function() {
+    spyOn(GoalService, "getAllFromApi");
+    ctrl.refreshGoals()
+    expect(GoalService.getAllFromApi).toHaveBeenCalled;
+
+  });
+
+
+  // it('can add a new goal', function() {
+  //   ctrl.addNewGoal('NewGoal');
+  //   var goal = new GoalFactory('NewGoal');
+  //   expect(ctrl.goals.pop()).toEqual(goal);
+  // });
 });
