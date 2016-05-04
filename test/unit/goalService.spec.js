@@ -15,10 +15,9 @@ describe('GoalService', function() {
     httpBackend.expectGET(apiURL + "goals.json").respond(goalsData);
     var goal1 = new GoalFactory("learn piano");
     var goal2 = new GoalFactory("finish book");
-    var goal3 = new GoalFactory("more sport");
 
     GoalService.getAll().then(function(goals){
-      expect(goals).toEqual([goal1, goal2, goal3])
+      expect(goals).toContain(goal1, goal2)
     });
     httpBackend.flush();
   });
