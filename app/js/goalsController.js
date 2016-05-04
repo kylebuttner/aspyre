@@ -1,3 +1,5 @@
+"use strict"
+
 goalbusterApp.controller('GoalbusterController', ['GoalFactory','GoalService', function(GoalFactory, GoalService) {
   var self = this;
 
