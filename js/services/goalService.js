@@ -1,3 +1,5 @@
+"use strict"
+
 goalbusterApp.service('GoalService', ['$http', 'GoalFactory', function($http, GoalFactory) {
   var self = this;
 
@@ -7,9 +9,11 @@ goalbusterApp.service('GoalService', ['$http', 'GoalFactory', function($http, Go
   }
 
   function _handleResponseFromApi (response)  {
-    return response.data.map(function(goalsData){
-      return new GoalFactory(goalsData.name);
-    });
+    return response.data.map(_createGoalFromData);
+  }
+
+  function _createGoalFromData (goalsData){
+    return new GoalFactory(goalsData.name);
   }
 
 }]);
