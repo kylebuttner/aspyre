@@ -15,7 +15,7 @@ describe('GoalbusterController', function() {
 
 
 
-  fit('when initializing it gets all goals from API', function() {
+  it('when initializing it gets all goals from API', function() {
     expect(ctrl.goals).toEqual(testObject);
   });
 
@@ -27,7 +27,7 @@ describe('GoalbusterController', function() {
   //   expect(ctrl.goals).toEqual([goal1, goal2, goal3]);
   // });
 
-  fit('can add a new goal', function() {
+  it('can add a new goal', function() {
     ctrl.addNewGoal('NewGoal');
     var goal = new GoalFactory('NewGoal');
     expect(ctrl.goals.pop()).toEqual(goal);

@@ -23,4 +23,12 @@ describe('GoalService', function() {
     });
     httpBackend.flush();
   });
+
+  fit ('sends the right arguments to api', function(goals){
+    var goal1 = new GoalFactory("learn piano");
+
+    GoalService.postGoalsToApi(goal1);
+    expect(httpBackend).toHaveBeenCalledWith(goal1);
+
+  });
 });
