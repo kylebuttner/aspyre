@@ -3,16 +3,20 @@
 goalbusterApp.controller('GoalbusterController', ['$q', 'GoalFactory','GoalService', function($q, GoalFactory, GoalService) {
   var self = this;
 
-  self.goals = []
+  self.goals = [];
 
-  GoalService.getAll().then(_saveGoals)
+  GoalService.getAllFromApi().then(_saveGoals)
 
   function _saveGoals(response) {
     self.goals = response
   }
 
   self.addNewGoal = function(newGoal) {
-    self.goals.push(new GoalFactory(newGoal));
+    GoalService.postGoalToApi(newGoal);
   };
+
+  self.refreshGoals = function() {
+     GoalService.getAllFromApi().then(_saveGoals)
+  }
 
 }]);
