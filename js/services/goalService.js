@@ -8,18 +8,26 @@ goalbusterApp.service('GoalService', ['$http', 'GoalFactory', function($http, Go
       .then(_handleResponseFromApi);
   }
 
-  self.postGoalsToApi = function(goal) {
-    var req = {
-     method: 'POST',
-     url: 'http://goalbuster-api.herokuapp.com/',
-     headers: {
-       'Content-Type': 'application/json'
-     },
-     data: goal
-   };
-    // $http(req)
-    //   .then()
+  self.postGoal = function(goal) {
+    return $http.post('http://goalbuster-api.herokuapp.com/goals', goal)
+  }
 
+  // self.postGoalsToApi = function(goal) {
+  //   var req = {
+  //    method: 'POST',
+  //    url: 'http://goalbuster-api.herokuapp.com/',
+  //    headers: {
+  //      'Content-Type': 'application/json'
+  //    },
+  //    data: goal
+  //  };
+  //   // $http(req)
+  //   //   .then()
+  //
+  // }
+
+  function _formatPOSTData(data) {
+    JSON.stringify(data);
   }
 
   function _handleResponseFromApi (response)  {
