@@ -6,7 +6,7 @@ describe('GoalService', function() {
   var GoalService, GoalFactory, httpBackend;
   var apiURL = "http://goalbuster-api.herokuapp.com/";
   var goalsData = [{name: "learn piano"}, {name: "finish book"}, {name: "more sport"} ]
-  var goal = {name: "new goal"};
+  var goal = "new goal"
 
   beforeEach(inject(function(_GoalService_, _GoalFactory_, $httpBackend){
     GoalService = _GoalService_;
@@ -36,6 +36,7 @@ describe('GoalService', function() {
     GoalService.postGoalToApi(goal).then(function(response){
       expect(response.status).toEqual(201);
     });
+    httpBackend.flush();
   });
 
   // fit ('sends the right arguments to api', function(goals){

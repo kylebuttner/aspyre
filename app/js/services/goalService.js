@@ -8,8 +8,8 @@ goalbusterApp.service('GoalService', ['$http', 'GoalFactory', function($http, Go
       .then(_handleResponseFromApi);
   }
 
-  self.postGoalToApi = function(data) {  
-     $http({
+  self.postGoalToApi = function(data) {
+     return $http({
       method: 'POST',
       url: 'http://goalbuster-api.herokuapp.com/goals',
       headers: {
@@ -18,7 +18,7 @@ goalbusterApp.service('GoalService', ['$http', 'GoalFactory', function($http, Go
       },
       data: _formatPOSTData(data)
     });
-    
+
   }
 
   function _formatPOSTData(param) {
