@@ -13,13 +13,17 @@
 </head>
   <body ng-controller='GoalbusterController as controller'>
     <div>
-      <input id="new-goal-name" type="text" ng-model="goalText">
+      <input id="new-goal-name" type="text" ng-model="goalText" placeholder="What is your goal?">
       <button id='add-goal-button' ng-click="controller.addNewGoal(goalText); controller.refreshGoals()">Add goal</button>
     </div>
-    <div id='goals'>
-      <p ng-repeat='goal in controller.goals'>
-        {{ goal.name }}
-      </p>
-    </div>
+    <ul id='goals'>
+      <li ng-repeat="goal in controller.goals" ng-dblclick="toggleEditMode()">
+        <div class="view" ng-keyup="editGoal()">
+          <span>{{ goal.name }}</span>
+        </div>
+        <input class="edit" type="text" ng-model="goal.name" ng-keyup="editOnEnter(goal)"/>
+        <!-- <button id='edit-goal-button'>Edit goal</button> -->
+      </li>
+    </ul>
   </body>
 </html>
