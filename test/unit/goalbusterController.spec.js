@@ -3,15 +3,16 @@
 describe('GoalbusterController', function() {
   beforeEach(module('goalbusterApp'));
 
-  var ctrl, httpBackend, GoalService, GoalFactory, GoalObject, TaskName, TaskService, q, GoalId;
+  var ctrl, httpBackend, GoalService, GoalFactory, GoalObject, TaskName, TaskService, q, GoalId, TaskId;
 
   beforeEach(inject(function($controller, _GoalFactory_, _GoalService_, _TaskService_, $httpBackend, $q) {
     GoalFactory = _GoalFactory_;
     GoalService = _GoalService_;
     TaskService = _TaskService_;
     GoalObject =  "learn piano"
-    TaskName = "read notes"
     GoalId = 1
+    TaskName = "read notes"
+    TaskId = 1
     ctrl = $controller('GoalbusterController');
     q = $q;
   }));
@@ -49,6 +50,18 @@ describe('GoalbusterController', function() {
       spyOn(TaskService, "getAllFromApi").and.returnValue(q.when())
       ctrl.refreshTasks(GoalId)
       expect(TaskService.getAllFromApi).toHaveBeenCalledWith(GoalId);
+    });
+
+    it('can update a task', function () {
+      spyOn(TaskService, 'editTaskOnApi');
+      ctrl.editTask(TaskName, TaskId);
+      expect(TaskService.editTaskOnApi).toHaveBeenCalledWith(TaskName, TaskId);
+    });
+
+    it('can delete a task', function () {
+      spyOn(TaskService, 'deleteTaskOnApi');
+      ctrl.deleteTask(TaskId);
+      expect(TaskService.deleteTaskOnApi).toHaveBeenCalledWith(TaskId);
     });
   });
 });
