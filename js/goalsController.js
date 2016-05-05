@@ -19,4 +19,13 @@ goalbusterApp.controller('GoalbusterController', ['$q', 'GoalFactory','GoalServi
      GoalService.getAllFromApi().then(_saveGoals)
   }
 
+  self.toggleEditMode = function() {
+    $(event.target).closest('li').toggleClass('editing');
+  };
+  self.editOnEnter = function(goal) {
+    if (event.keyCode == 13 && goal.name) {
+      self.toggleEditMode();
+    }
+  };
+
 }]);
