@@ -1,10 +1,22 @@
-goalbusterApp.controller('GoalbusterController', [ function() {
+"use strict"
+
+goalbusterApp.controller('GoalbusterController', ['$q', 'GoalFactory','GoalService', function($q, GoalFactory, GoalService) {
   var self = this;
 
-  self.goals = ["Goal 1", "Goal 2", "Goal 3"]
+  self.goals = [];
+
+  GoalService.getAllFromApi().then(_saveGoals)
+
+  function _saveGoals(response) {
+    self.goals = response
+  }
 
   self.addNewGoal = function(newGoal) {
-    self.goals.push(newGoal);
+    GoalService.postGoalToApi(newGoal);
   };
-  
+
+  self.refreshGoals = function() {
+     GoalService.getAllFromApi().then(_saveGoals)
+  }
+
 }]);

@@ -1,5 +1,18 @@
 describe('Goalbuster App', function() {
 
+var mock = require('protractor-http-mock');
+
+beforeEach(function(){
+  mock([{
+    request : {
+      path: "http://goalbuster-api.herokuapp.com/goals.json",
+      method: 'GET'
+    },
+    response: {
+      data: [{name: "learn piano"}, {name: "finish book"}, {name: "more sport"}]
+    }
+  }]);
+});
 
   it('has a title', function() {
     browser.get('/');
@@ -9,8 +22,8 @@ describe('Goalbuster App', function() {
   it('displays goals', function() {
     browser.get('/');
     var goals = $$('#goals p');
-    expect(goals.first().getText()).toEqual('Goal 1');
-    expect(goals.last().getText()).toEqual('Goal 3');
+    expect(goals.first().getText()).toEqual('learn piano');
+    expect(goals.last().getText()).toEqual('more sport');
   });
 
   it('displays an inputted goal', function() {
@@ -21,7 +34,7 @@ describe('Goalbuster App', function() {
     expect(goals).toMatch('NewGoal');
   });
 
-
-
-
+  afterEach(function(){
+   mock.teardown();
+  })
 });
