@@ -1,6 +1,6 @@
 goalbusterApp.factory('GoalFactory', [ function() {
-  var Goal = function(name){
-    this.name = name;
+  var Goal = function(){
+        
   };
 
   return Goal;
