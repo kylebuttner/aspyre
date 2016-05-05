@@ -11,19 +11,21 @@
   <script type="text/javascript" src="js/services/goalService.js"></script>
 
 </head>
-  <body ng-controller='GoalbusterController as controller'>
+  <body ng-controller='GoalbusterController as controller' ng-init="hideOnBlur=true">
     <div>
       <input id="new-goal-name" type="text" ng-model="goalText" placeholder="What is your goal?">
       <button id='add-goal-button' ng-click="controller.addNewGoal(goalText); controller.refreshGoals()">Add goal</button>
     </div>
-    <ul id='goals'>
-      <li ng-repeat="goal in controller.goals" ng-dblclick="toggleEditMode()">
-        <div class="view" ng-keyup="editGoal()">
-          <span>{{ goal.name }}</span>
-        </div>
-        <input class="edit" type="text" ng-model="goal.name" ng-keyup="editOnEnter(goal)"/>
-        <!-- <button id='edit-goal-button'>Edit goal</button> -->
-      </li>
-    </ul>
+    <!-- <section id="main"> -->
+    <div id='goals'>
+      <p ng-repeat='goal in controller.goals'>
+        <span ng-click="editing = true"  ng-hide="editing">{{ goal.name }}</span>
+        <span ng-show="editing">
+            <input type="text" class="form-control" ng-model="goal.name" ng-blur="editing = false" ng-required>
+              <a data-ng-click="editing = false; controller.editGoal(goal.name,goal.id)"></a>
+            </span>
+      </p>
+    </div>
+    <!-- </section> -->
   </body>
 </html>
