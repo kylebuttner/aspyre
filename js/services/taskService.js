@@ -19,6 +19,12 @@ goalbusterApp.service('TaskService',['TaskFactory', '$http', function(TaskFactor
       },
       data: _formatPOSTData(data)
     });
+  }
+
+  self.editTaskOnApi = function(data, taskId){
+  }
+
+  self.deleteTaskOnApi = function(taskId){
 
   }
 
@@ -34,6 +40,4 @@ goalbusterApp.service('TaskService',['TaskFactory', '$http', function(TaskFactor
     var data = {name: NewTask};
     return JSON.stringify(data);
   }
-
-
 }])
