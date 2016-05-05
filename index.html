@@ -14,7 +14,7 @@
   <body ng-controller='GoalbusterController as controller'>
     <div>
       <input id="new-goal-name" type="text" ng-model="goalText">
-      <input id='add-goal-button' ng-click="controller.addNewGoal(goalText); controller.refreshGoals()">Add goal</button>
+      <button id='add-goal-button' ng-click="controller.addNewGoal(goalText); controller.refreshGoals()">Add goal</button>
     </div>
     <div id='goals'>
       <p ng-repeat='goal in controller.goals'>
