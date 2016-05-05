@@ -31,11 +31,4 @@ describe('GoalbusterController', function() {
     expect(GoalService.getAllFromApi).toHaveBeenCalled;
 
   });
-
-
-  // it('can add a new goal', function() {
-  //   ctrl.addNewGoal('NewGoal');
-  //   var goal = new GoalFactory('NewGoal');
-  //   expect(ctrl.goals.pop()).toEqual(goal);
-  // });
 });
