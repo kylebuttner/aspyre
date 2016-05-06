@@ -6,7 +6,7 @@ goalbusterApp.controller('GoalbusterController', ['$q', 'GoalFactory','GoalServi
 
   self.goals = [];
 
-  GoalService.getAllFromApi().then(_saveGoals)
+  GoalService.getAllFromApi().then(_saveGoals);
 
   self.addNewGoal = function(newGoal) {
     GoalService.postGoalToApi(newGoal);
@@ -14,14 +14,13 @@ goalbusterApp.controller('GoalbusterController', ['$q', 'GoalFactory','GoalServi
 
   self.refreshGoals = function() {
      GoalService.getAllFromApi().then(_saveGoals)
-  }
+  };
 
   self.editGoal = function(name, id) {
-    GoalService.editGoalInApi(name, id).then(_saveGoals)
-  }
+    GoalService.editGoalInApi(name, id).then(_saveGoals);
+  };
 
   function _saveGoals(response) {
-    self.goals = response
-  }
-
+    self.goals = response;
+  };
 }]);

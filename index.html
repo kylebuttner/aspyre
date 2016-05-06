@@ -19,11 +19,11 @@
     <!-- <section id="main"> -->
     <div id='goals'>
       <p ng-repeat='goal in controller.goals'>
-        <span ng-click="editing = true"  ng-hide="editing">{{ goal.name }}</span>
+        <span id='goal' ng-click="editing = true"  ng-hide="editing">{{ goal.name }}</span>
         <span ng-show="editing">
-            <input type="text" class="form-control" ng-model="goal.name" ng-blur="editing = false; controller.editGoal(goal.name,goal.id)" ng-required>
-              <a data-ng-click="editing = false"></a>
-            </span>
+          <input id='edit-goal' type="text"  ng-model="goal.name" ng-blur="editing = false; controller.editGoal(goal.name,goal.id)" ng-required>
+            <a data-ng-click="editing = false"></a>
+        </span>
       </p>
     </div>
     <!-- </section> -->
