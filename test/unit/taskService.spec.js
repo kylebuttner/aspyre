@@ -1,4 +1,4 @@
-// "use strict"
+"use strict"
 
 describe('TaskService', function() {
   beforeEach(module('goalbusterApp'));
