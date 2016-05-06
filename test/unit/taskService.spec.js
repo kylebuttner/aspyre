@@ -43,7 +43,7 @@ describe('TaskService', function() {
     httpBackend.flush();
   });
 
-  it ('sends deletes a task', function() {
+  it ('deletes a task', function() {
     httpBackend.expectDELETE(apiURL + "/tasks/" + taskId).respond(204, 'task deleted successfully');
     TaskService.deleteTaskOnApi(taskId).then(function(response){
       expect(response.status).toEqual(204);
