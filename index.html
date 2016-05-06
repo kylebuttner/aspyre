@@ -8,14 +8,15 @@
   <script src="bower_components/angular-cookie/angular-cookie.js"></script>
   <script src="bower_components/ng-token-auth/dist/ng-token-auth.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
-  <script type="text/javascript" src="js/goalsController.js"></script>
-  <script type="text/javascript" src="js/factories/goalFactory.js"></script>
-  <script type="text/javascript" src="js/services/goalService.js"></script>
-  <script type="text/javascript" src="js/services/taskService.js"></script>
-  <script type="text/javascript" src="js/factories/taskFactory.js"></script>
+  <script type="text/javascript" src="js/controllers/goalsController.js"></script>
+  <script type="text/javascript" src="js/controllers/tasksController.js"></script>
+  <script type="text/javascript" src="js/factories/goalsFactory.js"></script>
+  <script type="text/javascript" src="js/factories/tasksFactory.js"></script>
+  <script type="text/javascript" src="js/services/goalsService.js"></script>
+  <script type="text/javascript" src="js/services/tasksService.js"></script>
 
 </head>
-  <body ng-controller='goalsController as controller'>
+  <body ng-controller='GoalsController as controller'>
 
     <div class="form-group">
       <button ng-click="authenticate('github')">Sign in with Github</button>
