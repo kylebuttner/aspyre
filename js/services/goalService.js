@@ -30,7 +30,7 @@ goalbusterApp.service('GoalService', ['$http', 'GoalFactory', function($http, Go
       },
       data: _formatPOSTData(data)
     });
-  }
+  };
 
   self.deleteGoalOnApi = function(goalId){
     return $http({
