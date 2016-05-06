@@ -23,9 +23,9 @@ describe('GoalbusterController', function() {
     expect(GoalService.postGoalToApi).toHaveBeenCalledWith(testObject);
   });
 
-  it('refreshs the list of goals', function() {
+  it('refreshes the list of goals', function() {
     spyOn(GoalService, "getAllFromApi").and.returnValue(q.when());
     ctrl.refreshGoals();
-    expect(GoalService.getAllFromApi).toHaveBeenCalled;
+    expect(GoalService.getAllFromApi).toHaveBeenCalled();
   });
 });
