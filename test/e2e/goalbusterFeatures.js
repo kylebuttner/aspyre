@@ -36,12 +36,11 @@ beforeEach(function(){
 
   it('can edit an inputted goal', function() {
     browser.get('/');
-    $('#new-goal-name').sendKeys("NewGoal");
-    $('#add-goal-button').click();
-    $('#edit-goal-button').click();
-    $('#edit-goal-name').sendKeys("NewGoalEdit")
-    $('#submit-edited-goal-button').click();
-    var goals = $$('#goals p').last().getText();
+    $('#goal').first().click();
+    $('#edit-goal').sendKeys("NewGoalEdit")
+    // $('#submit-edited-goal-button').click();
+
+    var goals = $$('#goals p').first().getText();
     expect(goals).toMatch('NewGoalEdit');
   })
 
