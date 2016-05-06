@@ -1,19 +1,19 @@
 "use strict"
 
-describe('goalsController', function() {
+describe('GoalsController', function() {
   beforeEach(module('goalbusterApp'));
 
-  var ctrl, httpBackend, GoalService, GoalFactory, GoalObject, TaskName, TaskService, q, GoalId, TaskId;
+  var ctrl, httpBackend, GoalsService, GoalsFactory, GoalObject, TaskName, TasksService, q, GoalId, TaskId;
 
-  beforeEach(inject(function($controller, _GoalFactory_, _GoalService_, _TaskService_, $httpBackend, $q) {
-    GoalFactory = _GoalFactory_;
-    GoalService = _GoalService_;
-    TaskService = _TaskService_;
+  beforeEach(inject(function($controller, _GoalsFactory_, _GoalsService_, _TasksService_, $httpBackend, $q) {
+    GoalsFactory = _GoalsFactory_;
+    GoalsService = _GoalsService_;
+    TasksService = _TasksService_;
     GoalObject =  "learn piano"
     GoalId = 1
     TaskName = "read notes"
     TaskId = 1
-    ctrl = $controller('goalsController');
+    ctrl = $controller('GoalsController');
     q = $q;
   }));
 
@@ -23,45 +23,15 @@ describe('goalsController', function() {
     });
     
     it('can add a new goal', function() {
-      spyOn(GoalService, "postGoalToApi");
+      spyOn(GoalsService, "postGoalToApi");
       ctrl.addNewGoal(GoalObject);
-      expect(GoalService.postGoalToApi).toHaveBeenCalledWith(GoalObject);
+      expect(GoalsService.postGoalToApi).toHaveBeenCalledWith(GoalObject);
     });
 
     it('refreshes the list of goals', function() {
-      spyOn(GoalService, "getAllFromApi").and.returnValue(q.when());
+      spyOn(GoalsService, "getAllFromApi").and.returnValue(q.when());
       ctrl.refreshGoals();
-      expect(GoalService.getAllFromApi).toHaveBeenCalled();
-    });
-  });
-
-  describe('CRUD Task', function (){
-    xit('when initializing it gets all tasks from API', function() {
-      expect(ctrl.tasks).toEqual([]);
-    });
-
-    it('can add a new task', function () {
-      spyOn(TaskService, 'postTaskToApi');
-      ctrl.addNewTask(TaskName, GoalId);
-      expect(TaskService.postTaskToApi).toHaveBeenCalledWith(TaskName, GoalId);
-    });
-
-    it('refreshes the list of tasks', function() {
-      spyOn(TaskService, "getAllFromApi").and.returnValue(q.when())
-      ctrl.refreshTasks(GoalId)
-      expect(TaskService.getAllFromApi).toHaveBeenCalledWith(GoalId);
-    });
-
-    it('can update a task', function () {
-      spyOn(TaskService, 'editTaskOnApi');
-      ctrl.editTask(TaskName, TaskId);
-      expect(TaskService.editTaskOnApi).toHaveBeenCalledWith(TaskName, TaskId);
-    });
-
-    it('can delete a task', function () {
-      spyOn(TaskService, 'deleteTaskOnApi');
-      ctrl.deleteTask(TaskId);
-      expect(TaskService.deleteTaskOnApi).toHaveBeenCalledWith(TaskId);
+      expect(GoalsService.getAllFromApi).toHaveBeenCalled();
     });
   });
 });

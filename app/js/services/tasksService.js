@@ -1,6 +1,6 @@
 "use strict"
 
-goalbusterApp.service('TaskService',['TaskFactory', '$http', function(TaskFactory, $http){
+goalbusterApp.service('TasksService',['TasksFactory', '$http', function(TasksFactory, $http){
   self = this;
 
 
@@ -49,7 +49,7 @@ goalbusterApp.service('TaskService',['TaskFactory', '$http', function(TaskFactor
   };
 
   function _createTaskFromData(TaskData) {
-    return new TaskFactory(TaskData.name)
+    return new TasksFactory(TaskData.name)
   }
 
   function _formatPOSTData(NewTask) {
