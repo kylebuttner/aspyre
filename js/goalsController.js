@@ -1,6 +1,6 @@
 "use strict"
 
-goalbusterApp.controller('GoalbusterController', ['$q', 'GoalFactory','GoalService', function($q, GoalFactory, GoalService) {
+goalbusterApp.controller('GoalbusterController', ['$q', 'GoalFactory','GoalService', '$auth', function($q, GoalFactory, GoalService, $auth) {
   var self = this;
 
   self.goals = [];
@@ -17,6 +17,10 @@ goalbusterApp.controller('GoalbusterController', ['$q', 'GoalFactory','GoalServi
 
   self.refreshGoals = function() {
      GoalService.getAllFromApi().then(_saveGoals)
+  }
+
+  self.handleBtnClick = function() {
+    $auth.authenticate("github");
   }
 
 }]);
