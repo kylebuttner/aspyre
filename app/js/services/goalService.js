@@ -4,14 +4,14 @@ goalbusterApp.service('GoalService', ['$http', 'GoalFactory', function($http, Go
   var self = this;
 
   self.getAllFromApi = function() {
-    return $http.get('http://localhost:3000/goals.json')
+    return $http.get('https://goalbuster-api.herokuapp.com/goals.json')
       .then(_handleResponseFromApi);
   }
 
   self.postGoalToApi = function(data) {
      $http({
       method: 'POST',
-      url: 'http://localhost:3000/goals/',
+      url: 'https://goalbuster-api.herokuapp.com/goals/',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -21,12 +21,10 @@ goalbusterApp.service('GoalService', ['$http', 'GoalFactory', function($http, Go
   }
 
   self.editGoalInApi = function(data, id) {
-    console.log(data)
+    console.log("DATAAAA", data, "IDIDD", id)
     $http({
       method: 'PUT',
-      // url: 'http://goalbuster-api.herokuapp.com/goals/' + id + "/",
-      url: 'http://localhost:3000/goals/' + id,
-
+      url: 'https://goalbuster-api.herokuapp.com/goals/' + id + "/",
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
