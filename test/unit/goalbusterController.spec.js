@@ -19,13 +19,13 @@ describe('GoalbusterController', function() {
 
   it('can add a new goal', function() {
     spyOn(GoalService, "postGoalToApi");
-    ctrl.addNewGoal(testObject)
+    ctrl.addNewGoal(testObject);
     expect(GoalService.postGoalToApi).toHaveBeenCalledWith(testObject);
   });
 
   it('refreshes the list of goals', function() {
-    spyOn(GoalService, "getAllFromApi").and.returnValue(q.when())
-    ctrl.refreshGoals()
+    spyOn(GoalService, "getAllFromApi").and.returnValue(q.when());
+    ctrl.refreshGoals();
     expect(GoalService.getAllFromApi).toHaveBeenCalled();
   });
 });

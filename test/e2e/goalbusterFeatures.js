@@ -34,6 +34,15 @@ beforeEach(function(){
     expect(goals).toMatch('NewGoal');
   });
 
+  it('can edit an inputted goal', function() {
+    browser.get('/');
+    $('#goal').first().click();
+    $('#edit-goal').sendKeys("NewGoalEdit")
+
+    var goals = $$('#goals p').first().getText();
+    expect(goals).toMatch('NewGoalEdit');
+  })
+
   afterEach(function(){
    mock.teardown();
   })

@@ -4,36 +4,58 @@ goalbusterApp.service('GoalService', ['$http', 'GoalFactory', function($http, Go
   var self = this;
 
   self.getAllFromApi = function() {
-    return $http.get('http://goalbuster-api.herokuapp.com/goals.json')
+    return $http.get('https://goalbuster-api.herokuapp.com/goals.json')
       .then(_handleResponseFromApi);
-  }
+  };
 
   self.postGoalToApi = function(data) {
-     return $http({
+    return $http({
       method: 'POST',
-      url: 'http://goalbuster-api.herokuapp.com/goals',
+      url: 'https://goalbuster-api.herokuapp.com/goals/',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
       data: _formatPOSTData(data)
     });
+  };
 
-  }
+  self.editGoalInApi = function(data, goalId) {
+    return $http({
+      method: 'PUT',
+      url: 'https://goalbuster-api.herokuapp.com/goals/' + goalId,
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      data: _formatPOSTData(data)
+    });
+  };
+
+  self.deleteGoalOnApi = function(goalId){
+    return $http({
+        method: 'DELETE',
+        url: 'https://goalbuster-api.herokuapp.com/goals/' + goalId,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      });
+  };
 
   function _formatPOSTData(param) {
     var data = {name: param};
     return JSON.stringify(data);
-  }
+  };
 
   function _handleResponseFromApi (response)  {
     return response.data.map(_createGoalFromData);
-  }
+  };
 
   function _createGoalFromData (goalsData){
-    return new GoalFactory(goalsData.name);
-  }
-
-
-
+    var newgoal = new GoalFactory();
+    newgoal.name = goalsData.name;
+    newgoal.id = goalsData.id;
+    return newgoal;
+  };
 }]);
