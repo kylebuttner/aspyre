@@ -38,7 +38,6 @@ beforeEach(function(){
     browser.get('/');
     $('#goal').first().click();
     $('#edit-goal').sendKeys("NewGoalEdit")
-    // $('#submit-edited-goal-button').click();
 
     var goals = $$('#goals p').first().getText();
     expect(goals).toMatch('NewGoalEdit');
