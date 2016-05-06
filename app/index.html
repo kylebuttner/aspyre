@@ -16,7 +16,6 @@
       <input id="new-goal-name" type="text" ng-model="goalText" placeholder="What is your goal?">
       <button id='add-goal-button' ng-click="controller.addNewGoal(goalText); controller.refreshGoals()">Add goal</button>
     </div>
-    <!-- <section id="main"> -->
     <div id='goals'>
       <p ng-repeat='goal in controller.goals'>
         <span id='goal' ng-click="editing = true"  ng-hide="editing">{{ goal.name }}</span>
@@ -26,6 +25,5 @@
         </span>
       </p>
     </div>
-    <!-- </section> -->
   </body>
 </html>
