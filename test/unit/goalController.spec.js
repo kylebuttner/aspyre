@@ -1,6 +1,6 @@
 "use strict"
 
-describe('GoalbusterController', function() {
+describe('goalsController', function() {
   beforeEach(module('goalbusterApp'));
 
   var ctrl, httpBackend, GoalService, GoalFactory, testObject, q;
@@ -9,7 +9,7 @@ describe('GoalbusterController', function() {
     GoalFactory = _GoalFactory_;
     GoalService = _GoalService_;
     testObject = [{name: "learn piano"}];
-    ctrl = $controller('GoalbusterController');
+    ctrl = $controller('goalsController');
     q = $q;
   }));
 

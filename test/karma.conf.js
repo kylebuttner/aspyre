@@ -5,7 +5,9 @@ module.exports = function(config){
 
     files : [
       'app/bower_components/angular/angular.js',
+      'app/bower_components/angular-cookie/angular-cookie.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
+      'app/bower_components/ng-token-auth/dist/ng-token-auth.js',
       'app/js/**/*.js',
       'test/unit/**/*.js'
     ],
