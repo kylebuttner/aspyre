@@ -21,13 +21,7 @@ describe('goalsController', function() {
     xit('when initializing it gets all goals from API', function() {
       expect(ctrl.goals).toEqual([]);
     });
-
-    it('can add a new goal', function() {
-      spyOn(GoalService, "postGoalToApi");
-      ctrl.addNewGoal(GoalObject)
-      expect(GoalService.postGoalToApi).toHaveBeenCalledWith(GoalObject);
-    });
-
+    
     it('can add a new goal', function() {
       spyOn(GoalService, "postGoalToApi");
       ctrl.addNewGoal(GoalObject);
