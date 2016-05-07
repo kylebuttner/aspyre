@@ -16,8 +16,8 @@ goalbusterApp.controller('GoalsController', ['ipCookie', '$q', 'GoalsFactory','G
     self.goalText='';
   };
 
-  self.editGoal = function(name, Goalid) {
-    GoalsService.editGoalInApi(name, Goalid);
+  self.editGoal = function(name, GoalId) {
+    GoalsService.editGoalInApi(name, GoalId);
   };
 
  self.deleteGoal = function(GoalId) {
