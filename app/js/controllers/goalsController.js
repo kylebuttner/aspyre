@@ -2,7 +2,6 @@
 
 goalbusterApp.controller('GoalsController', ['ipCookie', '$q', 'GoalsFactory','GoalsService', 'TasksService', '$auth', function(ipCookie, $q, GoalsFactory, GoalsService, TasksService, $auth) {
   var self = this;
-  var goalText = '';
   self.goals = [];
 
   GoalsService.getAllFromApi().then(_saveGoals);
