@@ -12,22 +12,28 @@ goalbusterApp.controller('GoalsController', ['ipCookie', '$q', 'GoalsFactory','G
 
   self.addNewGoal = function(newGoal) {
     GoalsService.postGoalToApi(newGoal);
-    self._refreshGoals();
+    _refreshGoals();
     self.goalText='';
   };
 
-  self._refreshGoals = function() {
-     GoalsService.getAllFromApi().then(_saveGoals)
+  self.editGoal = function(name, Goalid) {
+    GoalsService.editGoalInApi(name, Goalid);
   };
 
-  self.editGoal = function(name, id) {
-    GoalsService.editGoalInApi(name, id);
+ self.deleteGoal = function(GoalId) {
+    GoalsService.deleteGoalOnApi(GoalId);
+    _refreshGoals();
+  };
+
+  self.handleBtnClick = function() {
+    $auth.authenticate("github");
+  };
+
+  function _refreshGoals() {
+     GoalsService.getAllFromApi().then(_saveGoals)
   };
 
   function _saveGoals(response) {
     self.goals = response;
-  };
-  self.handleBtnClick = function() {
-    $auth.authenticate("github");
   };
 }]);

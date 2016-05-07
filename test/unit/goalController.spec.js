@@ -3,13 +3,13 @@
 describe('GoalsController', function() {
   beforeEach(module('goalbusterApp'));
 
-  var ctrl, httpBackend, GoalsService, GoalsFactory, GoalObject, TaskName, TasksService, q, GoalId, TaskId;
+  var ctrl, httpBackend, GoalsService, GoalsFactory, GoalName, TaskName, TasksService, q, GoalId, TaskId;
 
   beforeEach(inject(function($controller, _GoalsFactory_, _GoalsService_, _TasksService_, $httpBackend, $q) {
     GoalsFactory = _GoalsFactory_;
     GoalsService = _GoalsService_;
     TasksService = _TasksService_;
-    GoalObject =  "learn piano"
+    GoalName =  "learn piano"
     GoalId = 1
     TaskName = "read notes"
     TaskId = 1
@@ -24,14 +24,20 @@ describe('GoalsController', function() {
     
     it('can add a new goal', function() {
       spyOn(GoalsService, "postGoalToApi");
-      ctrl.addNewGoal(GoalObject);
-      expect(GoalsService.postGoalToApi).toHaveBeenCalledWith(GoalObject);
+      ctrl.addNewGoal(GoalName);
+      expect(GoalsService.postGoalToApi).toHaveBeenCalledWith(GoalName);
     });
 
-    it('refreshes the list of goals', function() {
-      spyOn(GoalsService, "getAllFromApi").and.returnValue(q.when());
-      ctrl.refreshGoals();
-      expect(GoalsService.getAllFromApi).toHaveBeenCalled();
+    it('unpdates a goal', function() {
+      spyOn(GoalsService, 'editGoalInApi');
+      ctrl.editGoal(GoalName, GoalId);
+      expect(GoalsService.editGoalInApi).toHaveBeenCalledWith(GoalName, GoalId);
+    });
+
+    it('deletes a goal', function() {
+      spyOn(GoalsService, "deleteGoalOnApi");
+      ctrl.deleteGoal(GoalId);
+      expect(GoalsService.deleteGoalOnApi).toHaveBeenCalledWith(GoalId);
     });
   });
 });
