@@ -1,12 +1,12 @@
 "use strict"
 
-describe('GoalFactory', function() {
+describe('GoalsFactory', function() {
   beforeEach(module('goalbusterApp'));
 
   var goal;
 
-  beforeEach(inject(function(GoalFactory) {
-    goal = new GoalFactory();
+  beforeEach(inject(function(GoalsFactory) {
+    goal = new GoalsFactory();
   }));
 
   it('creates a new factory object with a goal', function () {

@@ -1,4 +1,4 @@
-goalbusterApp.factory('TaskFactory', function(){
+goalbusterApp.factory('TasksFactory', function(){
   var Task = function(name){
     this.name = name;
   };

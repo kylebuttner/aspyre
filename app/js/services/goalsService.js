@@ -1,6 +1,6 @@
 "use strict"
 
-goalbusterApp.service('GoalService', ['$http', 'GoalFactory', function($http, GoalFactory) {
+goalbusterApp.service('GoalsService', ['$http', 'GoalsFactory', function($http, GoalsFactory) {
   var self = this;
 
   self.getAllFromApi = function() {
@@ -53,7 +53,7 @@ goalbusterApp.service('GoalService', ['$http', 'GoalFactory', function($http, Go
   };
 
   function _createGoalFromData (goalsData){
-    var newgoal = new GoalFactory();
+    var newgoal = new GoalsFactory();
     newgoal.name = goalsData.name;
     newgoal.id = goalsData.id;
     return newgoal;
