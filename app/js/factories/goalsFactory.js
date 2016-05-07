@@ -1,4 +1,4 @@
-goalbusterApp.factory('GoalFactory', [ function() {
+goalbusterApp.factory('GoalsFactory', [ function() {
   var Goal = function(){
     };
 
