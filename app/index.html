@@ -23,16 +23,16 @@
     </div>
 
     <div>
-      <input id="new-goal-name" type="text" ng-model="goalText" placeholder="What is your goal?">
-      <button id='add-goal-button' ng-click="controller.addNewGoal(goalText); controller.refreshGoals()">Add goal</button>
+      <input id="new-goal-name" type="text" ng-model="controller.goalText" placeholder="What is your goal?">
+      <button id='add-goal-button' ng-click="controller.addNewGoal(controller.goalText)">Add goal</button>
     </div>
 
     <div id='goals'>
       <p ng-repeat='goal in controller.goals'>
         <span id='goal' ng-click="editing = true"  ng-hide="editing">{{ goal.name }}</span>
         <span ng-show="editing">
-          <input id='edit-goal' type="text"  ng-model="goal.name" ng-blur="editing = false; controller.editGoal(goal.name,goal.id)" ng-required>
-            <a data-ng-click="editing = false"></a>
+          <input id='edit-goal' type="text"  ng-model=goal.name ng-blur="editing = false; controller.editGoal(goal.name,goal.id)" >
+          <a ng-click="editing = false" ></a>
         </span>
       </p>
     </div>
