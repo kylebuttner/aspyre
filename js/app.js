@@ -7,10 +7,3 @@ var goalbusterApp = angular.module('goalbusterApp', ['ipCookie', 'ng-token-auth'
        }
     });
   });
-  // .directive('goalsInput', function(){
-  //   return {
-  //     restrict: 'A',
-  //     templateUrl: "js/partials/_goalsInput.html",
-  //     scope: true
-  //   };
-  // });
