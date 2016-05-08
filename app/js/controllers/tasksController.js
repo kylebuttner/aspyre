@@ -16,6 +16,7 @@ goalbusterApp.controller('TasksController', ['ipCookie', '$q', 'TasksService', '
   };
 
   self.editTask = function(taskUpdate, taskId) {
+    console.log("LETS SEE THIS!", taskId)
     TasksService.editTaskOnApi(taskUpdate, taskId);
   };
 
