@@ -1,7 +1,7 @@
 var goalbusterApp = angular.module('goalbusterApp', ['ipCookie', 'ng-token-auth'])
   .config(function($authProvider) {
     $authProvider.configure({
-       apiUrl: 'http://localhost:3000',
+       apiUrl: 'https://goalbuster-api.herokuapp.com',
        authProviderPaths: {
          github: '/auth/github'
        }
