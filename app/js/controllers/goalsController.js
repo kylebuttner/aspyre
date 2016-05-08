@@ -28,8 +28,12 @@ console.log(ipCookie());
   };
 
   self.handleRegBtnClick = function() {
-      $auth.submitRegistration(self.registrationForm)
+    $auth.submitRegistration(self.registrationForm);
   };
+
+  self.handleSignOutBtnClick = function() {
+    $auth.signOut();
+  }
 
   function _refreshGoals() {
      GoalsService.getAllFromApi().then(_saveGoals)
