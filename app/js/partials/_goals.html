@@ -1,13 +1,17 @@
+<div ng-controller='GoalsController as controller'>
   <input id="new-goal-name" type="text" ng-model="controller.goalText" placeholder="What is your goal?">
   <button id='add-goal-button' ng-click="controller.addNewGoal(controller.goalText)">Add goal</button>
 
-  <div id='goals'>
-    <p ng-repeat='goal in controller.goals'>
-        <span id='goal' ng-click="editing = true"  ng-hide="editing">{{ goal.name }}</span>
-        <span ng-show="editing">
-          <input id='edit-goal' type="text"  ng-model=goal.name ng-blur="editing = false; controller.editGoal(goal.name,goal.id)" >
-          <a ng-click="editing = false" ></a>
-        </span>
-        <button ng-click="controller.deleteGoal(goal.id)">X</button>
-    </p>
+    <div id='goals'>
+      <p ng-repeat='goal in controller.goals'>
+          <span id='goal' ng-click="editing = true"  ng-hide="editing">{{ goal.name }}</span>
+          <span ng-show="editing">
+            <input id='edit-goal' type="text"  ng-model=goal.name ng-blur="editing = false; controller.editGoal(goal.name,goal.id)" >
+            <a ng-click="editing = false" ></a>
+          </span>
+          <button ng-click="controller.deleteGoal(goal.id)">X</button>
+          <br>
+          <span ng-include src="'js/partials/_tasks.html'"><span>
+      </p>
+    </div>
   </div>

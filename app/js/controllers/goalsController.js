@@ -6,10 +6,6 @@ goalbusterApp.controller('GoalsController', ['ipCookie', '$q', 'GoalsFactory','G
 
   GoalsService.getAllFromApi().then(_saveGoals);
 
-  function _saveGoals(response) {
-    self.goals = response;
-  };
-
   self.addNewGoal = function(newGoal) {
     GoalsService.postGoalToApi(newGoal);
     _refreshGoals();
@@ -27,6 +23,18 @@ goalbusterApp.controller('GoalsController', ['ipCookie', '$q', 'GoalsFactory','G
 
   self.handleBtnClick = function() {
     $auth.authenticate("github");
+  };
+
+  self.handleRegBtnClick = function() {
+    $auth.submitRegistration(self.registrationForm);
+  };
+
+  self.handleSignOutBtnClick = function() {
+    $auth.signOut();
+  };
+
+  self.handleLoginBtnClick = function() {
+    $auth.submitLogin($scope.loginForm);
   };
 
   function _refreshGoals() {
