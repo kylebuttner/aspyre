@@ -6,8 +6,6 @@ goalbusterApp.controller('GoalsController', ['ipCookie', '$q', 'GoalsFactory','G
 
   GoalsService.getAllFromApi().then(_saveGoals);
 
-console.log(ipCookie());
-
   self.addNewGoal = function(newGoal) {
     GoalsService.postGoalToApi(newGoal);
     _refreshGoals();
@@ -33,7 +31,11 @@ console.log(ipCookie());
 
   self.handleSignOutBtnClick = function() {
     $auth.signOut();
-  }
+  };
+
+  self.handleLoginBtnClick = function() {
+    $auth.submitLogin($scope.loginForm);
+  };
 
   function _refreshGoals() {
      GoalsService.getAllFromApi().then(_saveGoals)
