@@ -1,6 +1,4 @@
-THIS IS TASK!
 <span ng-controller='TasksController as controller'>
-{{goal.id}}
   <span ng-init="controller.getTasksForGoal(goal.id)"></span>
   <input id="new-task-name" type="text" ng-model="controller.taskText" placeholder="What are your tasks?">
   <button id='add-task-button' ng-click="controller.addNewTask(controller.taskText, goal.id)">Add task</button>
