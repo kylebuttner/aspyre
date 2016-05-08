@@ -6,9 +6,7 @@ goalbusterApp.controller('GoalsController', ['ipCookie', '$q', 'GoalsFactory','G
 
   GoalsService.getAllFromApi().then(_saveGoals);
 
-  function _saveGoals(response) {
-    self.goals = response;
-  };
+console.log(ipCookie());
 
   self.addNewGoal = function(newGoal) {
     GoalsService.postGoalToApi(newGoal);
