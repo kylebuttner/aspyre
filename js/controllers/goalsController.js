@@ -27,6 +27,10 @@ console.log(ipCookie());
     $auth.authenticate("github");
   };
 
+  self.handleRegBtnClick = function() {
+      $auth.submitRegistration(self.registrationForm)
+  };
+
   function _refreshGoals() {
      GoalsService.getAllFromApi().then(_saveGoals)
   };
