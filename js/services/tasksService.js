@@ -48,7 +48,10 @@ goalbusterApp.service('TasksService',['TasksFactory', '$http', function(TasksFac
   };
 
   function _createTaskFromData(TaskData) {
-    return new TasksFactory(TaskData.name)
+    var newTask = new TasksFactory(TaskData.name)
+    newTask.name = TaskData.name;
+    newTask.id = TaskData.id;
+    return newTask;
   }
 
   function _formatPOSTData(NewTask) {
