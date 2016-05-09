@@ -4,11 +4,11 @@ describe('TasksService', function() {
   beforeEach(module('goalbusterApp'));
 
   var TasksService, httpBackend, TasksFactory;
-  var apiURL = "https://goalbuster-api.herokuapp.com"
-  var taskData = [{name: "read notes"}, {name: "buy bike"}]
-  var task = "new task"
-  var goalId =  1
-  var taskId = 1
+  var apiURL = "https://goalbuster-api.herokuapp.com";
+  var taskData = [{name: "read notes"}, {name: "buy bike"}];
+  var task = "new task";
+  var goalId =  1;
+  var taskId = 1;
 
   beforeEach(inject(function(_TasksService_, _TasksFactory_, $httpBackend){
     TasksService = _TasksService_;
@@ -18,8 +18,12 @@ describe('TasksService', function() {
 
   it ('featch a list of tasks for a goal', function() {
     httpBackend.expectGET(apiURL + '/goals/' + goalId + "/tasks.json" ).respond(taskData)
-    var task1 = new TasksFactory("read notes")
-    var task2 = new TasksFactory("buy bike")
+    var task1 = new TasksFactory()
+    var task2 = new TasksFactory()
+    task1.name = "read notes";
+    task2.name = "buy bike";
+    task1.id = undefined;
+    task2.id = undefined;
 
     TasksService.getAllFromApi(goalId).then(function(tasks){
        expect(tasks).toContain(task1, task2);

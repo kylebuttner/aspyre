@@ -6,10 +6,10 @@ describe ('TasksFactory', function(){
   var task;
 
   beforeEach(inject(function(TasksFactory){
-    task = new TasksFactory("new Task")
+    task = new TasksFactory()
   }));
 
   it('creates a new factory object with a goal', function () {
-    expect(task.name).toEqual('new Task');
+    expect(task).toEqual(jasmine.any(Object));
   });
 });
