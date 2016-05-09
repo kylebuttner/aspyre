@@ -1,0 +1,69 @@
+h1 {
+  font-family: 'Raleway', sans-serif;
+  padding: 15px;
+}
+
+#login {
+  display: none;
+}
+
+body {
+  background-image: url('../vendor/images/background.jpeg');
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+}
+
+.layer {
+  background-color: rgba(0, 0, 0, 0.25);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#tasks-left {
+  font-size: 800%;
+}
+
+/* Goal Dropdown */
+#goals-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-primary {
+  background-color: transparent !important;
+  border-color: #fff !important;
+  outline: 0 !important;
+}
+
+.btn-primary:hover {
+  background-color: #fff !important;
+  border-color: #fff;
+}
+
+button.btn.btn-primary.fake-button:hover {
+  background-color: transparent !important;
+  cursor: default;
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+
+#goal-display {
+  width: 40%;
+}
+
+/*.dropdown {
+  width: 100%;
+  text-align: center;
+}*/
+
+#goals {
+  padding-top: 15px;
+}
