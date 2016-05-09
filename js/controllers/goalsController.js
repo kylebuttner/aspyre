@@ -22,7 +22,6 @@ goalbusterApp.controller('GoalsController', ['GoalsService', function(GoalsServi
   };
 
   self.setPriorityGoal = function(goal) {
-    console.log("this is being called");
     self.priorityGoal = goal;
   };
 
