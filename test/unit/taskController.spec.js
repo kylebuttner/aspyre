@@ -27,12 +27,6 @@ describe('TasksController', function() {
       expect(TasksService.postTaskToApi).toHaveBeenCalledWith(TaskName, GoalId);
     });
 
-    it('refreshes the list of tasks', function() {
-      spyOn(TasksService, "getAllFromApi").and.returnValue(q.when())
-      ctrl.refreshTasks(GoalId)
-      expect(TasksService.getAllFromApi).toHaveBeenCalledWith(GoalId);
-    });
-
     it('can update a task', function () {
       spyOn(TasksService, 'editTaskOnApi');
       ctrl.editTask(TaskName, TaskId);
