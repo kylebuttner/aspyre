@@ -4,38 +4,38 @@ goalbusterApp.service('TasksService',['TasksFactory', '$http', function(TasksFac
   self = this;
 
   self.getAllFromApi = function(goalId){
-        return $http.get('https://goalbuster-api.herokuapp.com/goals/' + goalId +'/tasks.json')
+        return $http.get('http://localhost:3000/goals/' + goalId +'/tasks.json')
     .then(_handleResponseFromApi);
   }
 
   self.postTaskToApi = function(data, goalId){
     return $http({
       method: 'POST',
-      url: 'https://goalbuster-api.herokuapp.com/goals/' + goalId + "/tasks",
+      url: 'http://localhost:3000/goals/' + goalId + "/tasks",
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      data: _formatPOSTData(data)
+      data: _formatPOSTData(data, 'daily', false)
     });
   }
 
   self.editTaskOnApi = function(data, taskId){
     return $http({
       method: 'PUT',
-      url: 'https://goalbuster-api.herokuapp.com/tasks/' + taskId,
+      url: 'http://localhost:3000/tasks/' + taskId,
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      data: _formatPOSTData(data)
+      data: _formatPOSTData(data, 'daily', true)
     });
   }
 
   self.deleteTaskOnApi = function(taskId){
     return $http({
       method: 'DELETE',
-      url: 'https://goalbuster-api.herokuapp.com/tasks/' + taskId,
+      url: 'http://localhost:3000/tasks/' + taskId,
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -54,8 +54,8 @@ goalbusterApp.service('TasksService',['TasksFactory', '$http', function(TasksFac
     return newTask;
   }
 
-  function _formatPOSTData(NewTask) {
-    var data = {name: NewTask};
+  function _formatPOSTData(NewTask, frequency, boolean) {
+    var data = {name: NewTask, frequency: frequency, completed: boolean};
     return JSON.stringify(data);
   }
 }])
@@ -63,4 +63,4 @@ goalbusterApp.service('TasksService',['TasksFactory', '$http', function(TasksFac
 
 
 
-// 'https://goalbuster-api.herokuapp.com/goals/'
+// 'http://localhost:3000/goals/goals/'
