@@ -8,7 +8,7 @@ goalbusterApp.service('GoalsService', ['$http', 'GoalsFactory', function($http, 
       .then(_handleResponseFromApi);
   };
 
-  self.postGoalToApi = function(data) {
+  self.postGoalToApi = function(goalObj) {
     return $http({
       method: 'POST',
       url: 'http://localhost:3000/goals/',
@@ -16,19 +16,19 @@ goalbusterApp.service('GoalsService', ['$http', 'GoalsFactory', function($http, 
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      data: _formatPOSTData(data, false)
+      data: _formatPOSTData(goalObj)
     });
   };
 
-  self.editGoalInApi = function(data, goalId) {
+  self.editGoalInApi = function(goalObj) {
     return $http({
       method: 'PUT',
-      url: 'http://localhost:3000/goals/' + goalId,
+      url: 'http://localhost:3000/goals/' + goalObj.id,
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      data: _formatPOSTData(data, true)
+      data: _formatPOSTData(goalObj)
 
     });
   };
@@ -44,21 +44,20 @@ goalbusterApp.service('GoalsService', ['$http', 'GoalsFactory', function($http, 
       });
   };
 
-  function _formatPOSTData(param, boolean) {
-    console.log(param);
-    var data = {name: param, completed: boolean}
-    console.log(JSON.stringify(data));
-    return JSON.stringify(data);
+  function _formatPOSTData(goalObj) {
+    console.log('goal obj', goalObj)
+    return JSON.stringify(goalObj);
   };
 
   function _handleResponseFromApi (response)  {
     return response.data.map(_createGoalFromData);
   };
 
-  function _createGoalFromData (goalsData){
+  function _createGoalFromData (goalObj){
     var newgoal = new GoalsFactory();
-    newgoal.name = goalsData.name;
-    newgoal.id = goalsData.id;
+    newgoal.name = goalObj.name;
+    newgoal.id = goalObj.id;
+    newgoal.completed = goalObj.completed;
     return newgoal;
   };
 }]);

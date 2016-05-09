@@ -12,8 +12,8 @@ goalbusterApp.controller('GoalsController', ['GoalsService', function(GoalsServi
     self.goalText='';
   };
 
-  self.editGoal = function(name, GoalId) {
-    GoalsService.editGoalInApi(name, GoalId);
+  self.editGoal = function(GoalObj) {
+    GoalsService.editGoalInApi(GoalObj);
   };
 
  self.deleteGoal = function(GoalId) {

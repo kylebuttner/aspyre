@@ -4,7 +4,7 @@ goalbusterApp.service('TasksService',['TasksFactory', '$http', function(TasksFac
   self = this;
 
   self.getAllFromApi = function(goalId){
-        return $http.get('http://localhost:3000/goals/' + goalId +'/tasks.json')
+        return $http.get('https://goalbuster-api.herokuapp.com/goals/' + goalId +'/tasks.json')
     .then(_handleResponseFromApi);
   }
 
@@ -64,3 +64,4 @@ goalbusterApp.service('TasksService',['TasksFactory', '$http', function(TasksFac
 
 
 // 'http://localhost:3000/goals/goals/'
+//https://goalbuster-api.herokuapp.com
