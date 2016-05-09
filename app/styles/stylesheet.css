@@ -30,12 +30,16 @@ body {
 
 /* Welcome partial */
 
-#tasks-left {
+#tasks-remaining {
   font-size: 800%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position: relative;
 }
 
 /* Focus on */
-#goals-container {
+.btn-group {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,14 +65,24 @@ button.btn.btn-primary.fake-button:hover {
 
 #goal-display {
   width: 40%;
+  border-left: none;
+  border-right: none;
 }
 
 #goals {
   padding-top: 15px;
 }
 
+.dropdown-menu {
+  width: 50%;
+  left: 50%;
+  right: auto;
+  text-align: center;
+  transform: translate(-50%, 0);
+}
+
 /* Tasks */
-#daily-tasks-container {
+.tasks-container {
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 4px;
   display: inline-block;

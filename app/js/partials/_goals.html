@@ -4,7 +4,7 @@
     <input id='add-goal-button' type="submit" ng-click="controller.addNewGoal(goal)" value="add goal">
   </form> -->
 
-  <div id="goals-container" class="btn-group" uib-dropdown keyboard-nav>
+  <div class="btn-group" uib-dropdown keyboard-nav>
     <button class="btn btn-primary fake-button">Focus on</h2>
     <button id="goal-display" class="btn btn-primary no-hover fake-button">
       {{controller.priorityGoal.name || "...all my goals"}}
@@ -12,13 +12,13 @@
     <button class="btn btn-primary dropdown-toggle" uib-dropdown-toggle>
       <span class="caret"></span>
     </button>
-    <ul class="dropdown-menu dropdown" uib-dropdown-menu role='menu' aria-labelledby='simple-btn-keyboard-nav'>
+    <ul class="dropdown-menu" uib-dropdown-menu role='menu' aria-labelledby='simple-btn-keyboard-nav'>
       <li ng-repeat='goal in controller.goals' role='menuitem' ng-click='controller.setPriorityGoal(goal)'>
         <a>{{goal.name}}</a>
       </li>
     </ul>
   </div>
-  <div id="daily-tasks-container" class="col-md-4 col-md-offset-4">
+  <div class="tasks-container col-md-4 col-md-offset-4">
     <div ng-repeat='goal in controller.goals' ng-include src="'js/partials/_tasks.html'"></div>
   </div>
 </div>
