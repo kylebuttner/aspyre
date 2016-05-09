@@ -1,7 +1,7 @@
 <span ng-controller='TasksController as controller'>
   <span ng-init="controller.getTasksForGoal(goal.id)"></span>
-  <input id="new-task-name" type="text" ng-model="controller.taskText" placeholder="What are your tasks?">
-  <button id='add-task-button' ng-click="controller.addNewTask(controller.taskText, goal.id)">Add task</button>
+  <!-- <input id="new-task-name" type="text" ng-model="controller.taskText" placeholder="What are your tasks?">
+  <button id='add-task-button' ng-click="controller.addNewTask(controller.taskText, goal.id)">Add task</button> -->
 
   <div id='tasks'>
     <p ng-repeat='task in controller.tasks'>
