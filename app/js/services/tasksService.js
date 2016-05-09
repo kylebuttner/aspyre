@@ -16,7 +16,7 @@ goalbusterApp.service('TasksService',['TasksFactory', '$http', function(TasksFac
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      data: _formatPOSTData(data)
+      data: _formatPOSTData(data, 'daily', false)
     });
   }
 
@@ -28,7 +28,7 @@ goalbusterApp.service('TasksService',['TasksFactory', '$http', function(TasksFac
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      data: _formatPOSTData(data)
+      data: _formatPOSTData(data, 'daily', true)
     });
   }
 
@@ -54,8 +54,8 @@ goalbusterApp.service('TasksService',['TasksFactory', '$http', function(TasksFac
     return newTask;
   }
 
-  function _formatPOSTData(NewTask) {
-    var data = {name: NewTask};
+  function _formatPOSTData(NewTask, frequency, boolean) {
+    var data = {name: NewTask, frequency: frequency, completed: boolean};
     return JSON.stringify(data);
   }
 }])
@@ -63,4 +63,5 @@ goalbusterApp.service('TasksService',['TasksFactory', '$http', function(TasksFac
 
 
 
-// 'https://goalbuster-api.herokuapp.com/goals/'
+// 'http://localhost:3000/goals/goals/'
+//https://goalbuster-api.herokuapp.com

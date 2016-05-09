@@ -6,18 +6,18 @@ goalbusterApp.controller('GoalsController', ['GoalsService', function(GoalsServi
 
   GoalsService.getAllFromApi().then(_saveGoals);
 
-  self.addNewGoal = function(newGoal) {
-    GoalsService.postGoalToApi(newGoal);
+  self.addNewGoal = function(formObj) {
+    GoalsService.postGoalToApi(formObj);
     _refreshGoals();
     self.goalText='';
   };
 
-  self.editGoal = function(name, GoalId) {
-    GoalsService.editGoalInApi(name, GoalId);
+  self.editGoal = function(goalObj) {
+    GoalsService.editGoalInApi(goalObj);
   };
 
- self.deleteGoal = function(GoalId) {
-    GoalsService.deleteGoalOnApi(GoalId);
+ self.deleteGoal = function(goalId) {
+    GoalsService.deleteGoalOnApi(goalId);
     _refreshGoals();
   };
 
