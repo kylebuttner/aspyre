@@ -8,7 +8,7 @@ goalbusterApp.service('TasksService',['TasksFactory', '$http', function(TasksFac
     .then(_handleResponseFromApi);
   }
 
-  self.postTaskToApi = function(data, goalId){
+  self.postTaskToApi = function(formObj, goalId){
     return $http({
       method: 'POST',
       url: 'https://goalbuster-api.herokuapp.com/goals/' + goalId + "/tasks",
@@ -16,26 +16,26 @@ goalbusterApp.service('TasksService',['TasksFactory', '$http', function(TasksFac
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      data: _formatPOSTData(data, 'daily', false)
+      data: _formatPOSTData(formObj)
     });
   }
 
-  self.editTaskOnApi = function(data, taskId){
+  self.editTaskOnApi = function(taskObj){
     return $http({
       method: 'PUT',
-      url: 'https://goalbuster-api.herokuapp.com/tasks/' + taskId,
+      url: 'https://goalbuster-api.herokuapp.com/tasks/' + taskObj.id,
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      data: _formatPOSTData(data, 'daily', true)
+      data: _formatPOSTData(taskObj)
     });
   }
 
-  self.deleteTaskOnApi = function(taskId){
+  self.deleteTaskOnApi = function(taskObj){
     return $http({
       method: 'DELETE',
-      url: 'https://goalbuster-api.herokuapp.com/tasks/' + taskId,
+      url: 'https://goalbuster-api.herokuapp.com/tasks/' + taskObj.id,
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -48,9 +48,11 @@ goalbusterApp.service('TasksService',['TasksFactory', '$http', function(TasksFac
   };
 
   function _createTaskFromData(TaskData) {
-    var newTask = new TasksFactory(TaskData.name)
+    var newTask = new TasksFactory()
     newTask.name = TaskData.name;
     newTask.id = TaskData.id;
+    newTask.frequency = TaskData.frequency;
+    newTask.completed =  TaskData.completed;
     return newTask;
   }
 
