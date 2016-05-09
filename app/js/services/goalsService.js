@@ -4,26 +4,26 @@ goalbusterApp.service('GoalsService', ['$http', 'GoalsFactory', function($http, 
   var self = this;
 
   self.getAllFromApi = function() {
-    return $http.get('http://localhost:3000/goals.json')
+    return $http.get('https://goalbuster-api.herokuapp.com/goals.json')
       .then(_handleResponseFromApi);
   };
 
-  self.postGoalToApi = function(goalObj) {
+  self.postGoalToApi = function(formObj) {
     return $http({
       method: 'POST',
-      url: 'http://localhost:3000/goals/',
+      url: 'https://goalbuster-api.herokuapp.com/goals/',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      data: _formatPOSTData(goalObj)
+      data: _formatPOSTData(formObj)
     });
   };
 
   self.editGoalInApi = function(goalObj) {
     return $http({
       method: 'PUT',
-      url: 'http://localhost:3000/goals/' + goalObj.id,
+      url: 'https://goalbuster-api.herokuapp.com/goals/' + goalObj.id,
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -36,7 +36,7 @@ goalbusterApp.service('GoalsService', ['$http', 'GoalsFactory', function($http, 
   self.deleteGoalOnApi = function(goalId){
     return $http({
         method: 'DELETE',
-        url: 'http://localhost:3000/goals/' + goalId,
+        url: 'https://goalbuster-api.herokuapp.com/goals/' + goalId,
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
@@ -44,9 +44,8 @@ goalbusterApp.service('GoalsService', ['$http', 'GoalsFactory', function($http, 
       });
   };
 
-  function _formatPOSTData(goalObj) {
-    console.log('goal obj', goalObj)
-    return JSON.stringify(goalObj);
+  function _formatPOSTData(dataObj) {
+    return JSON.stringify(dataObj);
   };
 
   function _handleResponseFromApi (response)  {
@@ -57,7 +56,7 @@ goalbusterApp.service('GoalsService', ['$http', 'GoalsFactory', function($http, 
     var newgoal = new GoalsFactory();
     newgoal.name = goalObj.name;
     newgoal.id = goalObj.id;
-    newgoal.completed = goalObj.completed;
+    newgoal.completed = goalObj.completed
     return newgoal;
   };
 }]);
