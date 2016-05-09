@@ -11,7 +11,7 @@
             <a ng-click="editing = false" ></a>
           </span>
           <input type="checkbox" ng-model="goal.completed" ng-change="controller.editGoal(goal)">
-          <button ng-click="controller.deleteGoal(goal.id)">X</button>
+          <button ng-click="controller.deleteGoal(goal)">X</button>
           <br>
           <span ng-include src="'js/partials/_tasks.html'"><span>
       </p>

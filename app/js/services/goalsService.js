@@ -33,10 +33,10 @@ goalbusterApp.service('GoalsService', ['$http', 'GoalsFactory', function($http, 
     });
   };
 
-  self.deleteGoalOnApi = function(goalId){
+  self.deleteGoalOnApi = function(goalObj){
     return $http({
         method: 'DELETE',
-        url: 'https://goalbuster-api.herokuapp.com/goals/' + goalId,
+        url: 'https://goalbuster-api.herokuapp.com/goals/' + goalObj.id,
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'

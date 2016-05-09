@@ -5,9 +5,9 @@ describe('GoalsService', function() {
 
   var GoalsService, GoalsFactory, httpBackend, goal1, goal2;
   var apiURL = "https://goalbuster-api.herokuapp.com/";
-  var goalsData = [{name: "learn piano", id: 1}, {name: "finish book", id: 2}, {name: "more sport", id: 3} ]
+  var goalsData = [{name: "learn piano", id: 1, completed: false}, {name: "finish book", id: 2, completed: true}, {name: "more sport", id: 3, completed: true} ]
+  var goal = {name: "new goal", id: 4};
   var formObj = {name: "new goal", id: 4};
-  var goalId = 1;
 
   beforeEach(inject(function(_GoalsService_, _GoalsFactory_, $httpBackend){
     GoalsService = _GoalsService_;
@@ -16,11 +16,11 @@ describe('GoalsService', function() {
     goal1 = new GoalsFactory();
     goal1.name = "learn piano";
     goal1.id = 1;
-    goal1.completed = undefined;
+    goal1.completed = false;
     goal2 = new GoalsFactory("finish book");
     goal2.name = "finish book";
     goal2.id = 2;
-    goal2.completed = undefined;
+    goal2.completed = false;
   }));
 
   it ('fetches a list of goals', function(){
@@ -55,8 +55,8 @@ describe('GoalsService', function() {
   });
 
   it ('sends deletes a goal', function() {
-    httpBackend.expectDELETE(apiURL + "goals/" + goalId).respond(204, 'goal deleted successfully');
-    GoalsService.deleteGoalOnApi(goalId).then(function(response){
+    httpBackend.expectDELETE(apiURL + "goals/" + goal1.id).respond(204, 'goal deleted successfully');
+    GoalsService.deleteGoalOnApi(goal1).then(function(response){
       expect(response.status).toEqual(204);
     });
     httpBackend.flush();
