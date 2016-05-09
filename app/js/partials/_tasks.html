@@ -1,18 +1,17 @@
 <span ng-controller='TasksController as controller'>
   <span ng-init="controller.getTasksForGoal(goal.id)"></span>
-  <!-- <input id="new-task-name" type="text" ng-model="controller.taskText" placeholder="What are your tasks?">
-  <button id='add-task-button' ng-click="controller.addNewTask(controller.taskText, goal.id)">Add task</button> -->
 
-  <div id='tasks'>
-    <p ng-repeat='task in controller.tasks'>
-        <span id='task' ng-click="editing = true"  ng-hide="editing">{{ task.name }}</span>
-
-        <span ng-show="editing">
+  <div id='daily-tasks'>
+    <ul ng-repeat='task in controller.tasks'>
+        <li id='task' ng-click="editing = true"  ng-hide="editing">
+          {{ task.name }}
+          <a ng-click="controller.deleteTask(task.id)">X</a>
+        </li>
+        <li ng-show="editing">
           <input id='edit-goal' type="text"  ng-model=task.name ng-blur="editing = false; controller.editTask(task.name,task.id)" >
           <a ng-click="editing = false" ></a>
-        </span>
-        <button ng-click="controller.deleteTask(task.id)">X</button>
+        </li>
         <br>
-    </p>
+    </ul>
   </div>
 </span>
