@@ -38,4 +38,12 @@ describe('GoalsController', function() {
       expect(GoalsService.deleteGoalOnApi).toHaveBeenCalledWith(GoalId);
     });
   });
+
+  describe('Front end features', function() {
+    it('sets a priority goal', function() {
+      var goal = ctrl.addNewGoal(GoalName)
+      ctrl.setPriorityGoal(goal)
+      expect(ctrl.priorityGoal).toEqual(goal);
+    })
+  })
 });
