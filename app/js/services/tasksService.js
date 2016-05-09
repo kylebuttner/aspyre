@@ -56,9 +56,8 @@ goalbusterApp.service('TasksService',['TasksFactory', '$http', function(TasksFac
     return newTask;
   }
 
-  function _formatPOSTData(NewTask, frequency, boolean) {
-    var data = {name: NewTask, frequency: frequency, completed: boolean};
-    return JSON.stringify(data);
+  function _formatPOSTData(DataObj) {
+    return JSON.stringify(DataObj);
   }
 }])
 
