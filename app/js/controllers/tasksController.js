@@ -9,8 +9,8 @@ goalbusterApp.controller('TasksController', ['TasksService', function(TasksServi
     TasksService.getAllFromApi(goalId).then(_saveTasks);
   };
 
-  self.addNewTask = function (newTask, goalId ) {
-    TasksService.postTaskToApi(newTask, goalId);
+  self.addNewTask = function (formObj, goalId) {
+    TasksService.postTaskToApi(formObj, goalId);
     _refreshTasks(goalId);
     self.taskText='';
   };

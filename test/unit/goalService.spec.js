@@ -6,7 +6,7 @@ describe('GoalsService', function() {
   var GoalsService, GoalsFactory, httpBackend, goal1, goal2;
   var apiURL = "https://goalbuster-api.herokuapp.com/";
   var goalsData = [{name: "learn piano", id: 1}, {name: "finish book", id: 2}, {name: "more sport", id: 3} ]
-  var goal = {name: "new goal", id: 4};
+  var formObj = {name: "new goal", id: 4};
   var goalId = 1;
 
   beforeEach(inject(function(_GoalsService_, _GoalsFactory_, $httpBackend){
@@ -34,13 +34,13 @@ describe('GoalsService', function() {
 
   it('post request takes an argument', function(){
     spyOn(GoalsService, 'postGoalToApi');
-    GoalsService.postGoalToApi(goal);
-    expect(GoalsService.postGoalToApi).toHaveBeenCalledWith(goal);
+    GoalsService.postGoalToApi(formObj);
+    expect(GoalsService.postGoalToApi).toHaveBeenCalledWith(formObj);
   });
 
   it ('sends a post request', function(){
     httpBackend.expectPOST(apiURL + 'goals/').respond(201, 'success');
-    GoalsService.postGoalToApi(goal).then(function(response){
+    GoalsService.postGoalToApi(formObj).then(function(response){
       expect(response.status).toEqual(201);
     });
     httpBackend.flush();
