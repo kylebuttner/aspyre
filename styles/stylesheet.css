@@ -8,13 +8,22 @@ h1 {
 }
 
 body {
-  background-image: url('https://images.unsplash.com/photo-1433360405326-e50f909805b3?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=359e8e12304ffa04a38627a157fc3362');
+  background-image: url('../vendor/images/background.jpeg');
   background-position: center center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'Open Sans', sans-serif;
   color: #fff;
+}
+
+.layer {
+  background-color: rgba(0, 0, 0, 0.25);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 #tasks-left {
