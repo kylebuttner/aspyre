@@ -4,7 +4,7 @@ describe('TasksService', function() {
   beforeEach(module('goalbusterApp'));
 
   var TasksService, httpBackend, TasksFactory;
-  var apiURL = "http://goalbuster-api.herokuapp.com"
+  var apiURL = "https://goalbuster-api.herokuapp.com"
   var taskData = [{name: "read notes"}, {name: "buy bike"}]
   var task = "new task"
   var goalId =  1
