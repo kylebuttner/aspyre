@@ -1,7 +1,7 @@
-<div ng-controller='GoalsController as controller'>
-
+<div id="focus-line" ng-controller='GoalsController as controller'>
   <div id="goals-container" class="btn-group" uib-dropdown keyboard-nav>
-    <button class="btn btn-primary dropdown">
+    <button class="btn btn-primary fake-button">Focus on</h2>
+    <button id="goal-display" class="btn btn-primary no-hover fake-button">
       {{controller.priorityGoal.name || "...all my goals"}}
     </button>
     <button class="btn btn-primary dropdown-toggle" uib-dropdown-toggle>

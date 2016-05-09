@@ -28,10 +28,32 @@ body {
   align-items: center;
 }
 
-.dropdown {
+.btn-primary {
+  background-color: transparent !important;
+  border-color: #fff !important;
+  outline: 0 !important;
+}
+
+.btn-primary:hover {
+  background-color: #fff !important;
+  border-color: #fff;
+}
+
+button.btn.btn-primary.fake-button:hover {
+  background-color: transparent !important;
+  cursor: default;
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+
+#goal-display {
+  width: 40%;
+}
+
+/*.dropdown {
   width: 100%;
   text-align: center;
-}
+}*/
 
 #goals {
   padding-top: 15px;
