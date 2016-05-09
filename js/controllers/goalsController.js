@@ -1,6 +1,6 @@
 "use strict"
 
-goalbusterApp.controller('GoalsController', ['ipCookie', '$q', 'GoalsFactory','GoalsService', 'TasksService', '$auth', function(ipCookie, $q, GoalsFactory, GoalsService, TasksService, $auth) {
+goalbusterApp.controller('GoalsController', ['GoalsService', function(GoalsService) {
   var self = this;
   self.goals = [];
 
