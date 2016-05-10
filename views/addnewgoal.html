@@ -1,5 +1,5 @@
-  <div class="question">
-    <div ng-controller='GoalsController as goalsController'>
+  <div class="centered">
+    <div class="question" ng-controller='GoalsController as goalsController'>
       <form novalidate>
         <h1 ng-hide="hide1">What do you want to work on?</h1>
         <input type="text" ng-hide="hide1" ng-model="goal.name" placeholder="{{goal.name}}" ng-enter="goalsController.addNewGoal(goal); hide1=!hide1">
