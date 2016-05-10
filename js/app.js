@@ -1,8 +1,12 @@
 var goalbusterApp = angular.module('goalbusterApp', ['ngRoute', 'xeditable', 'ngAnimate', 'ui.bootstrap', 'ipCookie', 'ng-token-auth', 'ui.router'])
-  .run(function(editableOptions) {
+  .run(['$rootScope', '$state', 'editableOptions', function($rootScope, $state, editableOptions) {
+    $rootScope.$on('auth:login-success', function() {
+      $state.go("add new goal")
+      // alert('ALERT')
+    })
     editableOptions.theme = 'default';
-  })
-  .config(['$authProvider', '$stateProvider', function($authProvider, $stateProvider) {
+  }])
+  .config(['$authProvider', '$stateProvider', '$urlRouterProvider', function($authProvider, $stateProvider, $urlRouterProvider) {
     $authProvider.configure({
        apiUrl: 'https://goalbuster-api.herokuapp.com',
        authProviderPaths: {
@@ -16,9 +20,16 @@ var goalbusterApp = angular.module('goalbusterApp', ['ngRoute', 'xeditable', 'ng
         data: {
           requireLogin: false
         }
+      })
+      .state("add new goal", {
+        url: "/add_goal",
+        // abstract: true,
+        templateUrl: 'views/addnewgoal.html',
+        resolve: {
+          auth: function($auth) {
+            return $auth.validateUser();
+          }
+        }
       });
-      // .state("/addnewgoal", {
-      //   templateUrl: 'views/addnewgoal.html'
-      // })
-      // .otherwise({redirectTo:'/'});
+      $urlRouterProvider.otherwise('/');
   }]);
