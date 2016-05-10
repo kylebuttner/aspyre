@@ -19,58 +19,137 @@
   </div>
 
 
-  <div class="col-md-3">
-    <div class="tasks-container">
-      <h3 id="frequency-title">Today<h3>
-      <a ng-click="editing=!editing">Toggle edit</a>
-      <div ng-model='editing' ng-hide='editing' ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal()">
+  <div class="col-md-2">
+    <h3 class="span12">Daily</h3>
+    <div class="row tasks-container">
+      <div class="span12" ng-model='editing' ng-hide='editing' ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal()">
         <ul class="list-unstyled" ng-repeat='task in controller.tasks | filter:{"goalId" : goalsController.priorityGoal.id}' ng-if='task.frequency == "daily"' >
           <li>
             <input type="checkbox" ng-model="task.completed" ng-change="controller.editTask(task)">
-            <p>{{ task.name }}</p>
+            <span id="edit-task" editable-text="task.name" onaftersave="editTask(task)">{{ task.name }}</span>
+            <a ng-click="controller.deleteTask(task)"><i class="glyphicon glyphicon-remove white"></i></a>
           </li>
         </ul>
       </div>
-      <!-- ng-show="controller.priorityGoal === nil || controller.priorityGoal === goal" -->
-      <div ng-repeat='goal in goalsController.goals' ng-show="editing">
-        <span id="edit-goal" editable-text="goal.name" onaftersave="editGoal(goal)"><h4>{{ goal.name }}</h4></span>
+
+      <div id="goaltasks" class="span12" ng-repeat='goal in goalsController.goals' ng-show="editing">
+        <div class="edit-goal-inline">
+          <span editable-text="goal.name" onaftersave="editGoal(goal)">{{ goal.name }}</span>
+        </div>
+        <div ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal(goal.id)">
+          <ul class="list-unstyled" ng-repeat='task in controller.tasks' ng-if='task.frequency == "daily"'>
+            <li>
+              <input type="checkbox" ng-model="task.completed" ng-change="controller.editTask(task)">
+              <span editable-text="task.name" onaftersave="editTask(task)">{{ task.name }}</span>
+              <a ng-click="controller.deleteTask(task)"><i class="glyphicon glyphicon-remove white"></i></a>
+            </li>
+          </ul>
+          <div ng-model="task.frequency" ng-init="task.frequency='daily'">
+            <input type="text"  editable-text="task.name" onaftersave="controller.addNewTask(task, goal.id)" placeholder="Add a task"></input>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="span12" ng-click="editing=!editing">Toggle edit</a>
+  </div>
+
+  <div class="col-md-2">
+    <h3 class="span12">Weekly</h3>
+    <div class="row tasks-container">
+      <div class="span12" ng-model='editing' ng-hide='editing' ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal()">
+        <ul class="list-unstyled" ng-repeat='task in controller.tasks | filter:{"goalId" : goalsController.priorityGoal.id}' ng-if='task.frequency == "weekly"' >
+          <li>
+            <input type="checkbox" ng-model="task.completed" ng-change="controller.editTask(task)">
+            <span id="edit-task" editable-text="task.name" onaftersave="editTask(task)">{{ task.name }}</span>
+            <a ng-click="controller.deleteTask(task)"><i class="glyphicon glyphicon-remove white"></i></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="span12" ng-repeat='goal in goalsController.goals' ng-show="editing">
+        <span editable-text="goal.name" onaftersave="editGoal(goal)"><p>{{ goal.name }}</p></span>
         <a ng-click="goalsController.deleteGoal(goal)"><i class="glyphicon glyphicon-remove white"></i></a>
-        <div ng-include src="'../partials/tasklists/_daily.html'"></div>
+        <div ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal(goal.id)">
+          <ul class="list-unstyled" ng-repeat='task in controller.tasks' ng-if='task.frequency == "weekly"'>
+            <li>
+              <input type="checkbox" ng-model="task.completed" ng-change="controller.editTask(task)">
+              <span editable-text="task.name" onaftersave="editTask(task)">{{ task.name }}</span>
+              <a ng-click="controller.deleteTask(task)"><i class="glyphicon glyphicon-remove white"></i></a>
+            </li>
+          </ul>
+          <div ng-model="task.frequency" ng-init="task.frequency='weekly'">
+            <input type="text"  editable-text="task.name" onaftersave="controller.addNewTask(task, goal.id)" placeholder="Add a task"></input>
+          </div>
+        </div>
       </div>
     </div>
+    <a class="span12" ng-click="editing=!editing">Toggle edit</a>
   </div>
 
-  <div class="col-md-3">
-    <div class="tasks-container">
-      <h3 id="frequency-title">This Week<h3>
-      <div ng-repeat='goal in controller.goals' ng-show="controller.priorityGoal === nil || controller.priorityGoal === goal">
-        <span id="edit-goal" editable-text="goal.name" onaftersave="editGoal(goal)"><h4>{{ goal.name }}</h4></span>
-          <a ng-click="controller.deleteGoal(goal)"><i class="glyphicon glyphicon-remove white"></i></a>
-          <div ng-include src="'../partials/tasklists/_weekly.html'"></div>
+  <div class="col-md-2">
+    <h3 class="span12">Monthly</h3>
+    <div class="row tasks-container">
+      <div class="span12" ng-model='editing' ng-hide='editing' ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal()">
+        <ul class="list-unstyled" ng-repeat='task in controller.tasks | filter:{"goalId" : goalsController.priorityGoal.id}' ng-if='task.frequency == "monthly"' >
+          <li>
+            <input type="checkbox" ng-model="task.completed" ng-change="controller.editTask(task)">
+            <span id="edit-task" editable-text="task.name" onaftersave="editTask(task)">{{ task.name }}</span>
+            <a ng-click="controller.deleteTask(task)"><i class="glyphicon glyphicon-remove white"></i></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="span12" ng-repeat='goal in goalsController.goals' ng-show="editing">
+        <span editable-text="goal.name" onaftersave="editGoal(goal)"><p>{{ goal.name }}</p></span>
+        <a ng-click="goalsController.deleteGoal(goal)"><i class="glyphicon glyphicon-remove white"></i></a>
+        <div ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal(goal.id)">
+          <ul class="list-unstyled" ng-repeat='task in controller.tasks' ng-if='task.frequency == "monthly"'>
+            <li>
+              <input type="checkbox" ng-model="task.completed" ng-change="controller.editTask(task)">
+              <span editable-text="task.name" onaftersave="editTask(task)">{{ task.name }}</span>
+              <a ng-click="controller.deleteTask(task)"><i class="glyphicon glyphicon-remove white"></i></a>
+            </li>
+          </ul>
+          <div ng-model="task.frequency" ng-init="task.frequency='monthly'">
+            <input type="text"  editable-text="task.name" onaftersave="controller.addNewTask(task, goal.id)" placeholder="Add a task"></input>
+          </div>
+        </div>
       </div>
     </div>
+    <a class="span12" ng-click="editing=!editing">Toggle edit</a>
   </div>
 
-  <div class="col-md-3">
-    <div class="tasks-container">
-      <h3 id="frequency-title">This Month<h3>
-      <div ng-repeat='goal in controller.goals' ng-show="controller.priorityGoal === nil || controller.priorityGoal === goal">
-        <span id="edit-goal" editable-text="goal.name" onaftersave="editGoal(goal)"><h4>{{ goal.name }}</h4></span>
-          <a ng-click="controller.deleteGoal(goal)"><i class="glyphicon glyphicon-remove white"></i></a>
-          <div ng-include src="'../partials/tasklists/_monthly.html'"></div>
+  <div class="col-md-2">
+    <h3 class="span12">Just once</h3>
+    <div class="row tasks-container">
+      <div class="span12" ng-model='editing' ng-hide='editing' ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal()">
+        <ul class="list-unstyled" ng-repeat='task in controller.tasks | filter:{"goalId" : goalsController.priorityGoal.id}' ng-if='task.frequency == "once"' >
+          <li>
+            <input type="checkbox" ng-model="task.completed" ng-change="controller.editTask(task)">
+            <span id="edit-task" editable-text="task.name" onaftersave="editTask(task)">{{ task.name }}</span>
+            <a ng-click="controller.deleteTask(task)"><i class="glyphicon glyphicon-remove white"></i></a>
+          </li>
+        </ul>
       </div>
-    </div>
-  </div>
 
-  <div class="col-md-3">
-    <div class="tasks-container">
-      <h3 id="frequency-title">One offs<h3>
-      <div ng-repeat='goal in controller.goals' ng-show="controller.priorityGoal === nil || controller.priorityGoal === goal">
-        <span id="edit-goal" editable-text="goal.name" onaftersave="editGoal(goal)"><h4>{{ goal.name }}</h4></span>
-          <a ng-click="controller.deleteGoal(goal)"><i class="glyphicon glyphicon-remove white"></i></a>
-          <div ng-include src="'../partials/tasklists/_once.html'"></div>
+      <div class="span12" ng-repeat='goal in goalsController.goals' ng-show="editing">
+        <span editable-text="goal.name" onaftersave="editGoal(goal)"><p>{{ goal.name }}</p></span>
+        <a ng-click="goalsController.deleteGoal(goal)"><i class="glyphicon glyphicon-remove white"></i></a>
+        <div ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal(goal.id)">
+          <ul class="list-unstyled" ng-repeat='task in controller.tasks' ng-if='task.frequency == "once"'>
+            <li>
+              <input type="checkbox" ng-model="task.completed" ng-change="controller.editTask(task)">
+              <span editable-text="task.name" onaftersave="editTask(task)">{{ task.name }}</span>
+              <a ng-click="controller.deleteTask(task)"><i class="glyphicon glyphicon-remove white"></i></a>
+            </li>
+          </ul>
+          <div ng-model="task.frequency" ng-init="task.frequency='once'">
+            <input type="text"  editable-text="task.name" onaftersave="controller.addNewTask(task, goal.id)" placeholder="Add a task"></input>
+          </div>
+        </div>
       </div>
     </div>
+    <a class="span12" ng-click="editing=!editing">Toggle edit</a>
   </div>
 
   <!-- <div class="col-md-2"></div> -->

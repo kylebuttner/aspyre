@@ -98,6 +98,9 @@ button.btn.btn-primary.fake-button:hover {
   /*display: inline-block;*/
   margin: 25px 0px;
   padding: 6px 12px;
+  height: 400px;
+  overflow-y: scroll;
+  text-align: left;
 }
 
 .tasks-container h4 {
@@ -116,6 +119,22 @@ button.btn.btn-primary.fake-button:hover {
 .list-group-item {
   background-color: transparent;
   border: none;
+}
+
+.edit-goal-inline {
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+}
+
+.edit-goal-inline .editable-click {
+  border-bottom: 0px;
+  font-size: 110%;
+  font-weight: bold;
+}
+
+#goaltasks {
+  margin-bottom: 15px;
 }
 
 input[type="checkbox"] {
