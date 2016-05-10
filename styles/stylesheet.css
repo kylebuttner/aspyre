@@ -92,7 +92,7 @@ a {
 
 /* Tasks */
 .tasks-container {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.4);
   border-radius: 4px;
   display: inline-block;
   margin: 25px 10px 10px 10px;
