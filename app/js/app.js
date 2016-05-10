@@ -10,6 +10,11 @@ var goalbusterApp = angular.module('goalbusterApp', ['ngRoute', 'xeditable', 'ng
        }
     });
     $routeProvider
-      .when("/addnewgoal", {templateUrl: 'partials/addnewgoal.html'})
+      .when("/", {
+        templateUrl: 'views/home.html'
+      })
+      .when("/addnewgoal", {
+        templateUrl: 'views/addnewgoal.html'
+      })
       .otherwise({redirectTo:'/'});
   }]);

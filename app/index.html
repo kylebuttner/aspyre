@@ -28,13 +28,15 @@
 
 </head>
 <body>
-  <div ng-view></div>
 
-  <!-- <div class="layer">
-    <div class="container"> -->
-      <!-- <div ng-include src="'js/partials/_app.html'"></div> -->
-    <!-- </div>
-  </div> -->
+  <div class="layer">
+    <div class="container">
+      <div ng-view></div>
+      <!-- We can only have one ng-view at a time. Render partials within view files now instead.
+      (Note that partials are now in the /app directory instead of /js) -->
+      <!-- <div ng-include src="'partials/_app.html'"></div> -->
+    </div>
+  </div>
 
 </body>
 </html>
