@@ -18,7 +18,11 @@
       </li>
     </ul>
   </div>
-  <div class="tasks-container col-md-4 col-md-offset-4">
-    <div ng-repeat='goal in controller.goals' ng-include src="'js/partials/_tasks.html'"></div>
+  <div class="tasks-container col-md-3">
+    <h3 id="frequency-title">Today<h3>
+    <div ng-repeat='goal in controller.goals'>
+      <h4>{{goal.name}}</h4>
+      <div ng-include src="'../partials/_tasks.html'"></div>
+    </div>
   </div>
 </div>

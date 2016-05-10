@@ -28,6 +28,10 @@ body {
   height: 100%;
 }
 
+.white {
+  color: white;
+}
+
 /* Welcome partial */
 
 #tasks-remaining {
@@ -90,6 +94,24 @@ button.btn.btn-primary.fake-button:hover {
   padding: 6px 12px;
 }
 
+.tasks-container h4 {
+  font-size: 60%;
+}
+
+#frequency-title {
+  text-align: center;
+  margin: 6px;
+}
+
+#goal-tasks {
+  font-size: 50%;
+}
+
+.list-group-item {
+  background-color: transparent;
+  border: none;
+}
+
 input[type="checkbox"] {
   margin: 0px 5px;
 }
@@ -116,6 +138,47 @@ input[type="text"] {
   margin-bottom: 0;
   width: 100%;
 }
-/*button[type="submit"], button[type="button"] {
+
+button[type="submit"], button[type="button"] {
   display: none;
-}*/
+}
+
+
+.editable-empty, .editable-empty:hover, .editable-empty:focus, a.editable-empty, a.editable-empty:hover, a.editable-empty:focus {
+  font-style: italic;
+  color: initial;
+  text-decoration: none;
+}
+
+.editable-click, a.editable-click {
+  text-decoration: none;
+  color: inherit;;
+  border-bottom: dashed 1px #fff;
+}
+
+.editable-click:hover, a.editable-click:hover {
+  text-decoration: none;
+  color: #2a6496;
+  border-bottom-color: #2a6496;
+}
+
+button[type="submit"], button[type="button"], input[type="submit"] {
+  display: none;
+}
+
+/* Add new goal */
+.question {
+  position: absolute;
+  top: 50%;
+  margin-top: -200px;/* half of #content height*/
+  left: 0;
+  width: 100%;
+}
+
+form {
+  text-align: center;
+}
+
+form h1 {
+  font-size: 800%;
+}
