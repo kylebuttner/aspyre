@@ -22,7 +22,7 @@
   <div class="col-md-3">
     <div class="tasks-container">
       <h3 id="frequency-title">Today<h3>
-      <button ng-click="editing=!editing">Toggle edit</button>
+      <a ng-click="editing=!editing">Toggle edit</a>
       <div ng-model='editing' ng-hide='editing' ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal()">
         <ul class="list-unstyled" ng-repeat='task in controller.tasks | filter:{"goalId" : goalsController.priorityGoal.id}' ng-if='task.frequency == "daily"' >
           <li>
