@@ -1,2 +1,13 @@
 <h1 class="text-center">Welcome to GoalBuster!</h1>
 <!-- <p id="tasks-remaining" class="text-center">5 tasks left today</p> -->
+<a ng-click="show = !show">Reply</a>
+<a ng-click="sign = !sign">sign</a>
+
+<div ng-init="show = false" ng-show="show" id="replyForm">
+    <div ng-include  src="'js/partials/_userSignIn.html'"></div>
+</div>
+
+
+<div ng-init="sign = false" ng-show="sign" id="replyForm">
+    <div ng-include  src="'js/partials/_userSignUp.html'"></div>
+</div>
