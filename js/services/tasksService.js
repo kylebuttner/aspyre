@@ -2,13 +2,13 @@
 
 goalbusterApp.service('TasksService',['TasksFactory', '$http', function(TasksFactory, $http){
   self = this;
-  
+
   self.getAllFromApi = function(goalId){
-  if (!goalId) {
+  if (goalId) {
       return $http.get('https://goalbuster-api.herokuapp.com/goals/' + goalId +'/tasks.json')
   .then(_handleResponseFromApi);
   } else {
-        return $http.get('https://goalbuster-api.herokuapp.com/goals/tasks.json')
+        return $http.get('https://goalbuster-api.herokuapp.com/tasks.json')
     .then(_handleResponseFromApi);
     }
 }
