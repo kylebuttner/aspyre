@@ -1,0 +1,27 @@
+<div id="login" ng-controller='UsersController as controller'>
+
+  <div class="form-group">
+    <button ng-click="authenticate('github')">Sign in with Github</button>
+  </div>
+
+  <form ng-submit="submitRegistration(registrationForm)" role="form" ng-init="registrationForm = {}">
+    <div class="form-group">
+      <label>email</label>
+      <input type="email" name="email" ng-model="registrationForm.email" required="required" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+      <label>password</label>
+      <input type="password" name="password" ng-model="registrationForm.password" required="required" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+      <label>password confirmation</label>
+      <input type="password" name="password_confirmation" ng-model="registrationForm.password_confirmation" required="required" class="form-control"/>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg">Register</button>
+  </form>
+
+  <button  class="btn btn-primary btn-sm" onclick="window.location.href='/#/welcome'">Back</button>
+</div>

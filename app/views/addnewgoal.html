@@ -1,0 +1,28 @@
+  <div class="question">
+    <div ng-controller='GoalsController as goalsController'>
+      <form novalidate>
+        <h1 ng-hide="hide1">What do you want to work on?</h1>
+        <input type="text" ng-hide="hide1" ng-model="goal.name" placeholder="{{goal.name}}" ng-enter="goalsController.addNewGoal(goal); hide1=!hide1">
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- <form novalidate>
+  <input id="new-goal-name" type="text" ng-model="goal.name" placeholder="What is your goal?">
+  <input id='add-goal-button' type="submit" ng-click="controller.addNewGoal(goal)" value="add goal">
+</form> -->
+
+<!-- <div class="pull-left">
+  <a><i class="glyphicon glyphicon-arrow-left white" ng-click="hide=!hide"></i></a>
+</div> -->
+<!--
+<div ng-controller="goalsController as goalsController">
+  <div class="question">
+    <h1 ng-hide="hide1">What do you want to work on?</h1>
+    <input type="text" ng-hide="hide1" ng-model="goal.name" placeholder="{{goal.name}}" ng-enter="hide1=!hide1" ng-enter="controller.addNewGoal(goal)"></input>
+    <input type="text" ng-hide="hide" editable-text="task.name" onbeforesave="hide=true" placeholder="Add a task"></input>
+    <h1 ng-hide="hide2">What should you do each day to start {{goal.name}}?</h1>
+    <input type="text" ng-hide="hide2" ng-model="task.name" placeholder="{{goal.name}}" ng-enter="hide2=!hide2"></input>
+  </div>
+</div> -->

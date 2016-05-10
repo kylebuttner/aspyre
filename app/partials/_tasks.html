@@ -1,0 +1,12 @@
+<div id="goal-tasks" ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal(goal.id)">
+  <ul class="list-unstyled" ng-repeat='task in controller.tasks' ng-if='task.frequency == "daily"'>
+    <li>
+      <input type="checkbox" ng-model="task.completed" ng-change="controller.editTask(task)">
+      <span id="edit-task" editable-text="task.name" onaftersave="editTask(task)">{{ task.name }}</span>
+      <a ng-click="controller.deleteTask(task)"><i class="glyphicon glyphicon-remove white"></i></a>
+    </li>
+  </ul>
+  <div ng-model="task.frequency" ng-init="task.frequency='daily'">
+  <input type="text"  editable-text="task.name" onaftersave="controller.addNewTask(task, goal.id)" placeholder="Add a task"></input>
+</div>
+</div>

@@ -21,10 +21,11 @@ goalbusterApp.controller('TasksController', ['TasksService', function(TasksServi
 
   self.deleteTask = function(taskId) {
     TasksService.deleteTaskOnApi(taskId);
+    _refreshTasks(goalId);
   };
 
   function _refreshTasks(goalId) {
-     TasksService.getAllFromApi(goalId).then(_saveTasks)
+     TasksService.getAllFromApi(goalId).then(_saveTasks);
   };
 
   function _saveTasks(response) {

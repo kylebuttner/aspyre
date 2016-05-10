@@ -1,0 +1,190 @@
+/* Layout */
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+  padding: 15px;
+}
+
+/*#login {
+  display: none;
+}*/
+
+body {
+  background-image: url('../vendor/images/background.jpeg');
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+}
+
+.layer {
+  background-color: rgba(0, 0, 0, 0.25);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.white {
+  color: white;
+}
+
+/* Welcome partial */
+
+#tasks-remaining {
+  font-size: 800%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position: relative;
+}
+
+/* Focus on */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-primary {
+  background-color: transparent !important;
+  border-color: #fff !important;
+  outline: 0 !important;
+}
+
+.btn-primary:hover {
+  background-color: #fff !important;
+  border-color: #fff;
+}
+
+button.btn.btn-primary.fake-button:hover {
+  background-color: transparent !important;
+  cursor: default;
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+
+#goal-display {
+  width: 40%;
+  border-left: none;
+  border-right: none;
+}
+
+#goals {
+  padding-top: 15px;
+}
+
+.dropdown-menu {
+  width: 50%;
+  left: 50%;
+  right: auto;
+  text-align: center;
+  transform: translate(-50%, 0);
+}
+
+a {
+  padding-left: 20px;
+  font-size: 170%;
+}
+
+/* Tasks */
+.tasks-container {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
+  display: inline-block;
+  margin: 25px 10px 10px 10px;
+  padding: 6px 12px;
+}
+
+.tasks-container h4 {
+  font-size: 60%;
+}
+
+#frequency-title {
+  text-align: center;
+  margin: 6px;
+}
+
+#goal-tasks {
+  font-size: 50%;
+}
+
+.list-group-item {
+  background-color: transparent;
+  border: none;
+}
+
+input[type="checkbox"] {
+  margin: 0px 5px;
+}
+
+input[type="text"] {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.editable-wrap {
+  display: inline-block;
+  margin: 0;
+  width: 85%;
+}
+.editable-wrap .editable-controls, .editable-wrap .editable-error {
+  margin-bottom: 0;
+  width: 99%;
+}
+.editable-wrap .editable-controls>select {
+    margin-bottom: 0;
+}
+.editable-wrap .editable-controls>input, .editable-wrap .editable-controls>textarea {
+  margin-bottom: 0;
+  width: 100%;
+}
+
+
+.editable-empty, .editable-empty:hover, .editable-empty:focus, a.editable-empty, a.editable-empty:hover, a.editable-empty:focus {
+  font-style: italic;
+  color: initial;
+  text-decoration: none;
+}
+
+.editable-click, a.editable-click {
+  text-decoration: none;
+  color: inherit;;
+  border-bottom: dashed 1px #fff;
+}
+
+.editable-click:hover, a.editable-click:hover {
+  text-decoration: none;
+  color: #2a6496;
+  border-bottom-color: #2a6496;
+}
+
+/*button[type="submit"], button[type="button"], input[type="submit"] {
+  display: none;
+}*/
+
+/* Add new goal */
+.question {
+  position: absolute;
+  top: 50%;
+  margin-top: -200px;/* half of #content height*/
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.question h1 {
+  font-size: 800%;
+}
+
+.question input {
+  border-bottom: solid 1px #fff;
+  width: 80% !important;
+  margin-top: 15px;
+  font-size: 400%;
+  text-align: center;
+}

@@ -1,0 +1,84 @@
+<div ng-controller='GoalsController as controller'>
+  <!-- <form novalidate>
+    <input id="new-goal-name" type="text" ng-model="goal.name" placeholder="What is your goal?">
+    <input id='add-goal-button' type="submit" ng-click="controller.addNewGoal(goal)" value="add goal">
+  </form> -->
+
+  <div class="btn-group" uib-dropdown keyboard-nav>
+    <button class="btn btn-primary fake-button">Focus on</h2>
+    <button id="goal-display" class="btn btn-primary no-hover fake-button">
+      {{controller.priorityGoal.name || "...all my goals"}}
+    </button>
+    <button class="btn btn-primary dropdown-toggle" uib-dropdown-toggle>
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" uib-dropdown-menu role='menu' aria-labelledby='simple-btn-keyboard-nav'>
+      <li ng-repeat='goal in controller.goals' role='menuitem' ng-click='controller.setPriorityGoal(goal)'>
+        <a>{{goal.name}}</a>
+      </li>
+    </ul>
+    <a href="/#/addnewgoal"><i class="glyphicon glyphicon-plus white"></i></a>
+  </div>
+  <div class="col-md-2"></div>
+  <div class="tasks-container col-md-2">
+    <h3 id="frequency-title">Today<h3>
+    <div ng-repeat='goal in controller.goals'>
+      <h4>{{goal.name}}</h4>
+      <div ng-include src="'../partials/_tasks.html'"></div>
+    </div>
+  </div>
+  <div class="tasks-container col-md-2">
+    <h3 id="frequency-title">This Week<h3>
+    <div ng-repeat='goal in controller.goals'>
+      <h4>{{goal.name}}</h4>
+        <div id="goal-tasks" ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal(goal.id)">
+          <ul class="list-unstyled" ng-repeat='task in controller.tasks' ng-if='task.frequency == "weekly"'>
+            <li>
+              <input type="checkbox" ng-model="task.completed" ng-change="controller.editTask(task)">
+              <span id="edit-task" editable-text="task.name" onaftersave="editTask(task)">{{ task.name }}</span>
+              <a ng-click="controller.deleteTask(task)"><i class="glyphicon glyphicon-remove white"></i></a>
+            </li>
+          </ul>
+          <div ng-model="task.frequency" ng-init="task.frequency='weekly'">
+            <input type="text"  editable-text="task.name" onaftersave="controller.addNewTask(task, goal.id)" placeholder="Add a task"></input>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="tasks-container col-md-2">
+    <h3 id="frequency-title">This Month<h3>
+    <div ng-repeat='goal in controller.goals'>
+      <h4>{{goal.name}}</h4>
+      <div id="goal-tasks" ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal(goal.id)">
+        <ul class="list-unstyled" ng-repeat='task in controller.tasks' ng-if='task.frequency == "monthly"'>
+          <li>
+            <input type="checkbox" ng-model="task.completed" ng-change="controller.editTask(task)">
+            <span id="edit-task" editable-text="task.name" onaftersave="editTask(task)">{{ task.name }}</span>
+            <a ng-click="controller.deleteTask(task)"><i class="glyphicon glyphicon-remove white"></i></a>
+          </li>
+        </ul>
+        <div ng-model="task.frequency" ng-init="task.frequency='monthly'">
+          <input type="text"  editable-text="task.name" onaftersave="controller.addNewTask(task, goal.id)" placeholder="Add a task"></input>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tasks-container col-md-2">
+    <h3 id="frequency-title">Eventually<h3>
+    <div ng-repeat='goal in controller.goals'>
+      <h4>{{goal.name}}</h4>
+      <div id="goal-tasks" ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal(goal.id)">
+        <ul class="list-unstyled" ng-repeat='task in controller.tasks' ng-if='task.frequency == "eventually"'>
+          <li>
+            <input type="checkbox" ng-model="task.completed" ng-change="controller.editTask(task)">
+            <span id="edit-task" editable-text="task.name" onaftersave="editTask(task)">{{ task.name }}</span>
+            <a ng-click="controller.deleteTask(task)"><i class="glyphicon glyphicon-remove white"></i></a>
+          </li>
+        </ul>
+        <div ng-model="task.frequency" ng-init="task.frequency='eventually'">
+          <input type="text"  editable-text="task.name" onaftersave="controller.addNewTask(task, goal.id)" placeholder="Add a task"></input>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
