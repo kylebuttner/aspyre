@@ -23,7 +23,8 @@
   <div class="tasks-container col-md-2">
     <h3 id="frequency-title">Today<h3>
     <div ng-repeat='goal in controller.goals' ng-show="controller.priorityGoal === nil || controller.priorityGoal === goal">
-      <h4>{{goal.name}}</h4>
+      <span id="edit-goal" editable-text="goal.name" onaftersave="editGoal(goal)"><h4>{{ goal.name }}</h4></span>
+        <a ng-click="controller.deleteGoal(goal)"><i class="glyphicon glyphicon-remove white"></i></a>
       <div ng-include src="'../partials/_tasks.html'"></div>
     </div>
   </div>
@@ -36,7 +37,8 @@
   <div class="tasks-container col-md-2">
     <h3 id="frequency-title">This Week<h3>
     <div ng-repeat='goal in controller.goals' ng-show="controller.priorityGoal === nil || controller.priorityGoal === goal">
-      <h4>{{goal.name}}</h4>
+      <span id="edit-goal" editable-text="goal.name" onaftersave="editGoal(goal)"><h4>{{ goal.name }}</h4></span>
+        <a ng-click="controller.deleteGoal(goal)"><i class="glyphicon glyphicon-remove white"></i></a>
         <div id="goal-tasks" ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal(goal.id)">
           <ul class="list-unstyled" ng-repeat='task in controller.tasks' ng-if='task.frequency == "weekly"'>
             <li>
@@ -54,7 +56,8 @@
   <div class="tasks-container col-md-2">
     <h3 id="frequency-title">This Month<h3>
     <div ng-repeat='goal in controller.goals' ng-show="controller.priorityGoal === nil || controller.priorityGoal === goal">
-      <h4>{{goal.name}}</h4>
+      <span id="edit-goal" editable-text="goal.name" onaftersave="editGoal(goal)"><h4>{{ goal.name }}</h4></span>
+        <a ng-click="controller.deleteGoal(goal)"><i class="glyphicon glyphicon-remove white"></i></a>
       <div id="goal-tasks" ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal(goal.id)">
         <ul class="list-unstyled" ng-repeat='task in controller.tasks' ng-if='task.frequency == "monthly"'>
           <li>
@@ -72,7 +75,8 @@
   <div class="tasks-container col-md-2">
     <h3 id="frequency-title">Eventually<h3>
     <div ng-repeat='goal in controller.goals' ng-show="controller.priorityGoal === nil || controller.priorityGoal === goal">
-      <h4>{{goal.name}}</h4>
+      <span id="edit-goal" editable-text="goal.name" onaftersave="editGoal(goal)"><h4>{{ goal.name }}</h4></span>
+        <a ng-click="controller.deleteGoal(goal)"><i class="glyphicon glyphicon-remove white"></i></a>
       <div id="goal-tasks" ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal(goal.id)">
         <ul class="list-unstyled" ng-repeat='task in controller.tasks' ng-if='task.frequency == "eventually"'>
           <li>
