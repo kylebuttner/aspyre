@@ -2,11 +2,16 @@
 
 goalbusterApp.service('TasksService',['TasksFactory', '$http', function(TasksFactory, $http){
   self = this;
-
+  
   self.getAllFromApi = function(goalId){
-        return $http.get('https://goalbuster-api.herokuapp.com/goals/' + goalId +'/tasks.json')
+  if (!goalId) {
+      return $http.get('https://goalbuster-api.herokuapp.com/goals/' + goalId +'/tasks.json')
+  .then(_handleResponseFromApi);
+  } else {
+        return $http.get('https://goalbuster-api.herokuapp.com/goals/tasks.json')
     .then(_handleResponseFromApi);
-  }
+    }
+}
 
   self.postTaskToApi = function(formObj, goalId){
     return $http({
