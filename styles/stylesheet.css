@@ -168,12 +168,17 @@ button[type="submit"], button[type="button"], input[type="submit"] {
   margin-top: -200px;/* half of #content height*/
   left: 0;
   width: 100%;
-}
-
-form {
   text-align: center;
 }
 
-form h1 {
+.question h1 {
   font-size: 800%;
+}
+
+.question input {
+  border-bottom: solid 1px #fff;
+  width: 80% !important;
+  margin-top: 15px;
+  font-size: 400%;
+  text-align: center;
 }

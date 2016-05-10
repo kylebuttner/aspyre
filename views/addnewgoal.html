@@ -1,5 +1,13 @@
 <div class="question">
-  <form>
-    <h1>What do you want to work on?</h1>
-  </form>
+  <h1 ng-hide="hide">What do you want to work on?</h1>
+  <input type="text" ng-hide="hide" ng-model="goal.name" placeholder="{{goal.name}}" ng-enter="hide=!hide"></input>
+  <!-- <input type="text" ng-hide="hide" editable-text="task.name" onbeforesave="hide=true" placeholder="Add a task"></input> -->
+
+  <button ng-click="hide=!hide">Toggle input</button>
+
 </div>
+
+<!-- <form novalidate>
+  <input id="new-goal-name" type="text" ng-model="goal.name" placeholder="What is your goal?">
+  <input id='add-goal-button' type="submit" ng-click="controller.addNewGoal(goal)" value="add goal">
+</form> -->
