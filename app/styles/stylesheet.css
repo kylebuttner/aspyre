@@ -17,6 +17,7 @@ body {
   background-size: cover;
   font-family: 'Open Sans', sans-serif;
   color: #fff;
+  overflow: hidden;
 }
 
 .layer {
@@ -94,8 +95,8 @@ button.btn.btn-primary.fake-button:hover {
 .tasks-container {
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 4px;
-  display: inline-block;
-  margin: 25px 10px 10px 10px;
+  /*display: inline-block;*/
+  margin: 25px 0px;
   padding: 6px 12px;
 }
 
@@ -168,20 +169,20 @@ button[type="submit"], button[type="button"], input[type="submit"] {
 }
 
 /* Add new goal */
-.question {
+.centered {
   position: absolute;
   top: 50%;
-  margin-top: -200px;/* half of #content height*/
+  margin-top: -200px;
   left: 0;
   width: 100%;
   text-align: center;
 }
 
-.question h1 {
+.centered .question h1 {
   font-size: 800%;
 }
 
-.question input {
+.centered .question input {
   border-bottom: solid 1px #fff;
   width: 80% !important;
   margin-top: 15px;
