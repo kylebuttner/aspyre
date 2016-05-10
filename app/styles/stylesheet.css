@@ -144,6 +144,7 @@ input[type="text"] {
   width: 100%;
 }
 
+
 .editable-empty, .editable-empty:hover, .editable-empty:focus, a.editable-empty, a.editable-empty:hover, a.editable-empty:focus {
   font-style: italic;
   color: initial;
@@ -162,9 +163,9 @@ input[type="text"] {
   border-bottom-color: #2a6496;
 }
 
-button[type="submit"], button[type="button"], input[type="submit"] {
+/*button[type="submit"], button[type="button"], input[type="submit"] {
   display: none;
-}
+}*/
 
 /* Add new goal */
 .question {
