@@ -10,6 +10,7 @@ module.exports = function(config){
       'app/bower_components/ng-token-auth/dist/ng-token-auth.js',
       'app/bower_components/angular-animate/angular-animate.min.js',
       'app/bower_components/angular-bootstrap/ui-bootstrap.min.js',
+      'app/bower_components/angular-xeditable/dist/js/xeditable.js',
       'app/js/**/*.js',
       'test/unit/**/*.js'
     ],
