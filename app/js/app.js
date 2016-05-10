@@ -6,6 +6,8 @@ var goalbusterApp = angular.module('goalbusterApp', ['ngRoute', 'xeditable', 'ng
     })
     editableOptions.theme = 'default';
   }])
+
+
   .config(['$authProvider', '$stateProvider', '$urlRouterProvider', function($authProvider, $stateProvider, $urlRouterProvider) {
     $authProvider.configure({
        apiUrl: 'https://goalbuster-api.herokuapp.com',
@@ -22,7 +24,7 @@ var goalbusterApp = angular.module('goalbusterApp', ['ngRoute', 'xeditable', 'ng
         }
       })
       .state("add new goal", {
-        url: "/add_goal",
+        url: "/addnewgoal",
         // abstract: true,
         templateUrl: 'views/addnewgoal.html',
         resolve: {
@@ -32,4 +34,19 @@ var goalbusterApp = angular.module('goalbusterApp', ['ngRoute', 'xeditable', 'ng
         }
       });
       $urlRouterProvider.otherwise('/');
-  }]);
+
+  }])
+
+  .directive('ngEnter', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.which === 13) {
+                scope.$apply(function (){
+                    scope.$eval(attrs.ngEnter);
+                });
+
+                event.preventDefault();
+            }
+        });
+    };
+  })
