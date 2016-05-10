@@ -1,8 +1,13 @@
-var goalbusterApp = angular.module('goalbusterApp', ['ngRoute', 'xeditable', 'ngAnimate', 'ui.bootstrap', 'ipCookie', 'ng-token-auth', 'ui.router'])
+var goalbusterApp = angular.module('goalbusterApp', [ 'xeditable', 'ngAnimate', 'ui.bootstrap', 'ipCookie', 'ng-token-auth', 'ui.router'])
   .run(['$rootScope', '$state', 'editableOptions', function($rootScope, $state, editableOptions) {
     $rootScope.$on('auth:login-success', function() {
-      $state.go("add new goal")
-      // alert('ALERT')
+      $state.go("home")
+    })
+    $rootScope.$on('auth:login-error', function() {
+      alert('Login failed')
+    })
+    $rootScope.$on('auth:logout-success', function() {
+      $state.go("welcome")
     })
     editableOptions.theme = 'default';
   }])
@@ -17,8 +22,22 @@ var goalbusterApp = angular.module('goalbusterApp', ['ngRoute', 'xeditable', 'ng
     });
     $stateProvider
       .state("welcome", {
-        url: "/",
-        templateUrl: 'views/signUp.html',
+        url: "/welcome",
+        templateUrl: 'views/Welcome.html',
+        data: {
+          requireLogin: false
+        }
+      })
+      .state("SignIn", {
+        url: "/signin",
+        templateUrl: 'views/SignIn.html',
+        data: {
+          requireLogin: false
+        }
+      })
+      .state("signup", {
+        url: "/signup",
+        templateUrl: 'views/SignUp.html',
         data: {
           requireLogin: false
         }
@@ -26,23 +45,18 @@ var goalbusterApp = angular.module('goalbusterApp', ['ngRoute', 'xeditable', 'ng
       .state("home", {
         url: "/home",
         templateUrl: 'views/home.html',
-        resolve: {
-          auth: function($auth) {
-            return $auth.validateUser();
-          }
+        data: {
+          requireLogin: true
         }
       })
       .state("add new goal", {
         url: "/addnewgoal",
-        // abstract: true,
         templateUrl: 'views/addnewgoal.html',
-        resolve: {
-          auth: function($auth) {
-            return $auth.validateUser();
-          }
+        data: {
+          requireLogin: true
         }
       });
-      $urlRouterProvider.otherwise('/');
+      $urlRouterProvider.otherwise('/welcome');
 
   }])
 
