@@ -23,6 +23,15 @@ var goalbusterApp = angular.module('goalbusterApp', ['ngRoute', 'xeditable', 'ng
           requireLogin: false
         }
       })
+      .state("home", {
+        url: "/home",
+        templateUrl: 'views/home.html',
+        resolve: {
+          auth: function($auth) {
+            return $auth.validateUser();
+          }
+        }
+      })
       .state("add new goal", {
         url: "/addnewgoal",
         // abstract: true,
