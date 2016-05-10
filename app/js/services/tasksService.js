@@ -53,6 +53,7 @@ goalbusterApp.service('TasksService',['TasksFactory', '$http', function(TasksFac
     newTask.id = TaskData.id;
     newTask.frequency = TaskData.frequency;
     newTask.completed =  TaskData.completed;
+    newTask.goalId = TaskData.goal_id;
     return newTask;
   }
 
