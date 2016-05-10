@@ -1,17 +1,40 @@
-<div ng-controller='GoalsController as controller'>
-  <!-- <form novalidate>
-    <input id="new-goal-name" type="text" ng-model="goal.name" placeholder="What is your goal?">
-    <input id='add-goal-button' type="submit" ng-click="controller.addNewGoal(goal)" value="add goal">
-  </form> -->
+<div ng-controller='GoalsController as goalsController'>
 
-  <!-- <div class="col-md-2"></div> -->
+  <div class="btn-group" uib-dropdown keyboard-nav>
+    <button class="btn btn-primary fake-button">Focus on</button>
+    <button id="goal-display" class="btn btn-primary no-hover fake-button">
+      {{goalsController.priorityGoal.name || "...all my goals"}}
+    </button>
+    <button class="btn btn-primary dropdown-toggle" uib-dropdown-toggle>
+      <span class="caret"></span>
+    </button>
+
+    <ul class="dropdown-menu" uib-dropdown-menu role='menu' aria-labelledby='simple-btn-keyboard-nav'>
+      <li ng-repeat='goal in goalsController.goals' role='menuitem' ng-click='goalsController.setPriorityGoal(goal)'>
+        <a>{{goal.name}}</a>
+      </li>
+    </ul>
+
+    <a href="/#/addnewgoal"><i class="glyphicon glyphicon-plus white"></i></a>
+  </div>
+
 
   <div class="col-md-3">
     <div class="tasks-container">
       <h3 id="frequency-title">Today<h3>
-      <div ng-repeat='goal in controller.goals' ng-show="controller.priorityGoal === nil || controller.priorityGoal === goal">
+      <button ng-click="editing=!editing">Toggle edit</button>
+      <div ng-model='editing' ng-hide='editing' ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal()">
+        <ul class="list-unstyled" ng-repeat='task in controller.tasks | filter:{"goalId" : goalsController.priorityGoal.id}' ng-if='task.frequency == "daily"' >
+          <li>
+            <input type="checkbox" ng-model="task.completed" ng-change="controller.editTask(task)">
+            <p>{{ task.name }}</p>
+          </li>
+        </ul>
+      </div>
+      <!-- ng-show="controller.priorityGoal === nil || controller.priorityGoal === goal" -->
+      <div ng-repeat='goal in goalsController.goals' ng-show="editing">
         <span id="edit-goal" editable-text="goal.name" onaftersave="editGoal(goal)"><h4>{{ goal.name }}</h4></span>
-        <a ng-click="controller.deleteGoal(goal)"><i class="glyphicon glyphicon-remove white"></i></a>
+        <a ng-click="goalsController.deleteGoal(goal)"><i class="glyphicon glyphicon-remove white"></i></a>
         <div ng-include src="'../partials/tasklists/_daily.html'"></div>
       </div>
     </div>
