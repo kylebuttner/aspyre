@@ -85,6 +85,11 @@ button.btn.btn-primary.fake-button:hover {
   transform: translate(-50%, 0);
 }
 
+a {
+  padding-left: 20px;
+  font-size: 170%;
+}
+
 /* Tasks */
 .tasks-container {
   background-color: rgba(0, 0, 0, 0.8);
@@ -169,12 +174,17 @@ input[type="text"] {
   margin-top: -200px;/* half of #content height*/
   left: 0;
   width: 100%;
-}
-
-form {
   text-align: center;
 }
 
-form h1 {
+.question h1 {
   font-size: 800%;
+}
+
+.question input {
+  border-bottom: solid 1px #fff;
+  width: 80% !important;
+  margin-top: 15px;
+  font-size: 400%;
+  text-align: center;
 }
