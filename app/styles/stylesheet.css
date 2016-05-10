@@ -85,7 +85,7 @@ button.btn.btn-primary.fake-button:hover {
   transform: translate(-50%, 0);
 }
 
-a {
+.btn-group a {
   padding-left: 20px;
   font-size: 170%;
 }
@@ -163,9 +163,9 @@ input[type="text"] {
   border-bottom-color: #2a6496;
 }
 
-/*button[type="submit"], button[type="button"], input[type="submit"] {
+button[type="submit"], button[type="button"], input[type="submit"] {
   display: none;
-}*/
+}
 
 /* Add new goal */
 .question {
