@@ -5,9 +5,9 @@ h1 {
   padding: 15px;
 }
 
-#login {
+/*#login {
   display: none;
-}
+}*/
 
 body {
   background-image: url('../vendor/images/background.jpeg');
@@ -116,6 +116,6 @@ input[type="text"] {
   margin-bottom: 0;
   width: 100%;
 }
-button[type="submit"], button[type="button"] {
+/*button[type="submit"], button[type="button"] {
   display: none;
-}
+}*/

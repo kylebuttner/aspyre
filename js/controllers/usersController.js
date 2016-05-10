@@ -14,6 +14,8 @@ goalbusterApp.controller('UsersController', ['ipCookie', '$q', '$auth', function
   };
 
   self.handleLoginBtnClick = function() {
-    $auth.submitLogin($scope.loginForm);
+    $auth.submitLogin(self.loginForm);
   };
+
+
 }]);
