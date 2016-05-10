@@ -5,9 +5,9 @@ h1 {
   padding: 15px;
 }
 
-#login {
+/*#login {
   display: none;
-}
+}*/
 
 body {
   background-image: url('../vendor/images/background.jpeg');
@@ -83,6 +83,11 @@ button.btn.btn-primary.fake-button:hover {
   right: auto;
   text-align: center;
   transform: translate(-50%, 0);
+}
+
+a {
+  padding-left: 20px;
+  font-size: 170%;
 }
 
 /* Tasks */
