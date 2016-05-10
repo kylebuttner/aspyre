@@ -160,3 +160,20 @@ input[type="text"] {
 button[type="submit"], button[type="button"], input[type="submit"] {
   display: none;
 }
+
+/* Add new goal */
+.question {
+  position: absolute;
+  top: 50%;
+  margin-top: -200px;/* half of #content height*/
+  left: 0;
+  width: 100%;
+}
+
+form {
+  text-align: center;
+}
+
+form h1 {
+  font-size: 800%;
+}
