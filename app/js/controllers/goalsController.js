@@ -30,7 +30,6 @@ goalbusterApp.controller('GoalsController', ['GoalsService', '$location', functi
   };
 
   self.redirectToNewTasks = function() {
-    console.log('heyyyy')
     $location.url('/addnewtasks')
   }
 

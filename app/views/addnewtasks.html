@@ -7,7 +7,7 @@
         {{task.name}}
         <a class="pull-right" ng-click="tasksController.deleteTask(task)"><i class="glyphicon glyphicon-remove white"></i></a>
       </div>
-      <input type="text"  editable-text="task.name" onaftersave="tasksController.addNewTask(task, lastGoal.id)"></input>
+      <input type="text"  ng-model="task.name" ng-enter="tasksController.addNewTask(task, lastGoal.id); task.name=''; console.log('yes')"></input>
     </div>
 
 
