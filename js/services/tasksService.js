@@ -4,14 +4,14 @@ goalbusterApp.service('TasksService',['TasksFactory', '$http', function(TasksFac
   self = this;
 
   self.getAllFromApi = function(goalId){
-  if (goalId) {
-      return $http.get('https://goalbuster-api.herokuapp.com/goals/' + goalId +'/tasks.json')
-  .then(_handleResponseFromApi);
-  } else {
-        return $http.get('https://goalbuster-api.herokuapp.com/tasks.json')
+    if (goalId !== undefined) {
+        return $http.get('https://goalbuster-api.herokuapp.com/goals/' + goalId +'/tasks.json')
     .then(_handleResponseFromApi);
+    } else {
+          return $http.get('https://goalbuster-api.herokuapp.com/tasks.json')
+      .then(_handleResponseFromApi);
     }
-}
+  };
 
   self.postTaskToApi = function(formObj, goalId){
     return $http({

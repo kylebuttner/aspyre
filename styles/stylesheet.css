@@ -84,6 +84,9 @@ button.btn.btn-primary.fake-button:hover {
   right: auto;
   text-align: center;
   transform: translate(-50%, 0);
+  max-height: 300px;
+  overflow: auto;
+  overflow-y: scroll;
 }
 
 .btn-group a {
@@ -92,13 +95,19 @@ button.btn.btn-primary.fake-button:hover {
 }
 
 /* Tasks */
+
+#task-list-container {
+  overflow: auto;
+  margin-top: 25px;
+}
 .tasks-container {
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 4px;
   /*display: inline-block;*/
   margin: 25px 0px;
   padding: 6px 12px;
-  height: 400px;
+  height: 100%;
+  max-height: 300px;
   overflow-y: scroll;
   text-align: left;
 }
@@ -198,7 +207,7 @@ button[type="submit"], button[type="button"], input[type="submit"] {
 .centered {
   position: absolute;
   top: 50%;
-  margin-top: -200px;
+  margin-top: -150px;
   left: 0;
   width: 100%;
   text-align: center;
