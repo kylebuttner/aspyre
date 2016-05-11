@@ -11,6 +11,7 @@ module.exports = function(config){
       'app/bower_components/angular-animate/angular-animate.min.js',
       'app/bower_components/angular-bootstrap/ui-bootstrap.min.js',
       'app/bower_components/angular-xeditable/dist/js/xeditable.js',
+      'app/bower_components/angular-ui-router/release/angular-ui-router.js',
       'app/js/**/*.js',
       'test/unit/**/*.js'
     ],
