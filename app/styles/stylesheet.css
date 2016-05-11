@@ -107,6 +107,11 @@ button.btn.btn-primary.fake-button:hover {
   font-size: 60%;
 }
 
+.completed-true {
+  text-decoration: line-through;
+  color: grey;
+}
+
 #frequency-title {
   text-align: center;
   margin: 6px;
@@ -115,6 +120,8 @@ button.btn.btn-primary.fake-button:hover {
 #goal-tasks {
   font-size: 50%;
 }
+
+
 
 .list-group-item {
   background-color: transparent;
