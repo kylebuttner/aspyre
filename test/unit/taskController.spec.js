@@ -3,16 +3,13 @@
 describe('TasksController', function() {
   beforeEach(module('goalbusterApp'));
 
-  var ctrl, httpBackend, TaskName, TasksService, TasksFactory, q, GoalId, TaskId;
+  var ctrl, httpBackend, TaskObj, TasksService, TasksFactory, q, GoalId;
 
-  beforeEach(inject(function($controller, _TasksFactory_, _TasksService_, $httpBackend, $q) {
+  beforeEach(inject(function($controller, _TasksService_, $httpBackend) {
     TasksService = _TasksService_;
-    TasksFactory = _TasksFactory_;
     GoalId = 1;
-    TaskName = "read notes";
-    TaskId = 1;
+    TaskObj = {name :"read notes", id: 1}
     ctrl = $controller('TasksController');
-    q = $q;
   }));
 
 
@@ -23,20 +20,20 @@ describe('TasksController', function() {
 
     it('can add a new task', function () {
       spyOn(TasksService, 'postTaskToApi');
-      ctrl.addNewTask(TaskName, GoalId);
-      expect(TasksService.postTaskToApi).toHaveBeenCalledWith(TaskName, GoalId);
+      ctrl.addNewTask(TaskObj, GoalId);
+      expect(TasksService.postTaskToApi).toHaveBeenCalledWith(TaskObj, GoalId);
     });
 
     it('can update a task', function () {
       spyOn(TasksService, 'editTaskOnApi');
-      ctrl.editTask(TaskName, TaskId);
-      expect(TasksService.editTaskOnApi).toHaveBeenCalledWith(TaskName, TaskId);
+      ctrl.editTask(TaskObj);
+      expect(TasksService.editTaskOnApi).toHaveBeenCalledWith(TaskObj);
     });
 
     it('can delete a task', function () {
       spyOn(TasksService, 'deleteTaskOnApi');
-      ctrl.deleteTask(TaskId);
-      expect(TasksService.deleteTaskOnApi).toHaveBeenCalledWith(TaskId);
+      ctrl.deleteTask(TaskObj);
+      expect(TasksService.deleteTaskOnApi).toHaveBeenCalledWith(TaskObj);
     });
   });
 });
