@@ -15,13 +15,14 @@ goalbusterApp.controller('TasksController', ['TasksService', function(TasksServi
     self.taskText='';
   };
 
-  self.editTask = function(taskUpdate, taskId) {
-    TasksService.editTaskOnApi(taskUpdate, taskId);
+  self.editTask = function(taskObj) {
+    TasksService.editTaskOnApi(taskObj);
+    _refreshTasks();
   };
 
-  self.deleteTask = function(taskId) {
-    TasksService.deleteTaskOnApi(taskId);
-    _refreshTasks(goalId);
+  self.deleteTask = function(taskObj) {
+    TasksService.deleteTaskOnApi(taskObj);
+    _refreshTasks();
   };
 
   function _refreshTasks(goalId) {
