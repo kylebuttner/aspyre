@@ -4,7 +4,9 @@ goalbusterApp.controller('GoalsController', ['GoalsService', function(GoalsServi
   var self = this;
   self.goals = [];
 
-  GoalsService.getAllFromApi().then(_saveGoals);
+  self.getGoalsForUser = function() {
+    GoalsService.getAllFromApi().then(_saveGoals);
+  };
 
   self.addNewGoal = function(formObj) {
     GoalsService.postGoalToApi(formObj);
