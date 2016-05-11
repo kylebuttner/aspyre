@@ -16,32 +16,37 @@
     </ul>
 
     <a href="/#/addnewgoal"><i class="glyphicon glyphicon-plus white"></i></a>
+    <a ng-click="goalsController.priorityGoal"><i class="glyphicon glyphicon-minus white"></i></a>
   </div>
 
 
   <div class="col-md-2">
     <h3 class="span12">Daily</h3>
     <div class="row tasks-container">
-      <div class="span12" ng-model='editing' ng-hide='editing' ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal()">
+      <div class="span12" ng-model='editingDaily' ng-hide='editingDaily' ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal()">
         <ul class="list-unstyled" ng-repeat='task in controller.tasks | filter:{"goalId" : goalsController.priorityGoal.id}' ng-if='task.frequency == "daily"' >
           <li>
-            <input type="checkbox" ng-model="task.completed" ng-change="controller.editTask(task)">
-            <span id="edit-task" editable-text="task.name" onaftersave="editTask(task)">{{ task.name }}</span>
-            <a ng-click="controller.deleteTask(task)"><i class="glyphicon glyphicon-remove white"></i></a>
+            <div class="pull-left">
+              <input type="checkbox" ng-model="task.completed" ng-change="controller.editTask(task)">
+              <span id="edit-task" editable-text="task.name" onaftersave="editTask(task)">{{ task.name }}</span>
+            </div>
+            <a class="pull-right" ng-click="controller.deleteTask(task)"><i class="glyphicon glyphicon-remove white"></i></a>
           </li>
         </ul>
       </div>
 
-      <div id="goaltasks" class="span12" ng-repeat='goal in goalsController.goals' ng-show="editing">
+      <div id="goaltasks" class="span12" ng-repeat='goal in goalsController.goals | filter:{"id" : goalsController.priorityGoal.id}' ng-show="editingDaily">
         <div class="edit-goal-inline">
           <span editable-text="goal.name" onaftersave="editGoal(goal)">{{ goal.name }}</span>
         </div>
         <div ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal(goal.id)">
           <ul class="list-unstyled" ng-repeat='task in controller.tasks' ng-if='task.frequency == "daily"'>
             <li>
-              <input type="checkbox" ng-model="task.completed" ng-change="controller.editTask(task)">
-              <span editable-text="task.name" onaftersave="editTask(task)">{{ task.name }}</span>
-              <a ng-click="controller.deleteTask(task)"><i class="glyphicon glyphicon-remove white"></i></a>
+              <div class="pull-left">
+                <input type="checkbox" ng-model="task.completed" ng-change="controller.editTask(task)">
+                <span editable-text="task.name" onaftersave="editTask(task)">{{ task.name }}</span>
+              </div>
+              <a class="pull-right" ng-click="controller.deleteTask(task)"><i class="glyphicon glyphicon-remove white"></i></a>
             </li>
           </ul>
           <div ng-model="task.frequency" ng-init="task.frequency='daily'">
@@ -50,7 +55,7 @@
         </div>
       </div>
     </div>
-    <a class="span12" ng-click="editing=!editing">Toggle edit</a>
+    <a class="span12" ng-click="editingDaily=!editingDaily">Toggle edit</a>
   </div>
 
   <div class="col-md-2">
