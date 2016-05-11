@@ -44,6 +44,10 @@ describe('GoalsController', function() {
       var goal = ctrl.addNewGoal(GoalName)
       ctrl.setPriorityGoal(goal)
       expect(ctrl.priorityGoal).toEqual(goal);
+    });
+    it('gets last goal entered', function() {
+      var goal = ctrl.addNewGoal(GoalName)
+      expect(ctrl.getLastGoal()).toEqual(goal);
     })
   })
 });

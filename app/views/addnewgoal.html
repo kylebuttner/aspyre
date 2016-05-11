@@ -1,12 +1,55 @@
   <div class="centered">
     <div class="question" ng-controller='GoalsController as goalsController'>
+
       <form novalidate>
         <h1 ng-hide="hide1">What do you want to work on?</h1>
         <input type="text" ng-hide="hide1" ng-model="goal.name" placeholder="{{goal.name}}" ng-enter="goalsController.addNewGoal(goal); hide1=!hide1">
       </form>
+
+      <div ng-show="hide1" ng-value="lastGoal=goalsController.getLastGoal()">
+        <div ng-controller="TasksController as tasksController">
+          <input type="text"  editable-text="task.name" onaftersave="tasksController.addNewTask(task, lastGoal.id)"></input>
+        </div>
+      </div>
+      <br>
+      <a href="/#/home">Never mind, I have enough on my plate!</a>
     </div>
   </div>
 </div>
+
+
+
+<div ng-model="task.frequency" ng-init="task.frequency='daily'">
+  <input type="text"  editable-text="task.name" onaftersave="controller.addNewTask(task, goalid)" placeholder="Add a task"></input>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <div id="goaltasks" class="span12" ng-repeat='goal in goalsController.goals | filter:{"id" : goalsController.priorityGoal.id}' ng-show="editingDaily">
+      <div class="edit-goal-inline">
+        <span editable-text="goal.name" onaftersave="editGoal(goal)">{{ goal.name }}</span>
+      </div>
+      <div ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal(goal.id)">
+        <ul class="list-unstyled" ng-repeat='task in controller.tasks' ng-if='task.frequency == "daily"'>
+          <li>
+            <input type="checkbox" ng-model="task.completed" ng-change="controller.editTask(task)">
+            <span editable-text="task.name" onaftersave="controller.editTask(task)">{{ task.name }}</span>
+            <a class="pull-right" ng-click="controller.deleteTask(task)"><i class="glyphicon glyphicon-remove white"></i></a>
+          </li>
+        </ul>
+        <div ng-model="task.frequency" ng-init="task.frequency='daily'">
+          <input type="text"  editable-text="task.name" onaftersave="controller.addNewTask(task, goal.id)" placeholder="Add a task"></input>
+        </div>
+      </div>
+    </div>
 
 <!-- <form novalidate>
   <input id="new-goal-name" type="text" ng-model="goal.name" placeholder="What is your goal?">

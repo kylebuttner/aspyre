@@ -25,6 +25,10 @@ goalbusterApp.controller('GoalsController', ['GoalsService', function(GoalsServi
     self.priorityGoal = goal;
   };
 
+  self.getLastGoal = function() {
+    return self.goals[self.goals.length-1]
+  };
+
   function _refreshGoals() {
      GoalsService.getAllFromApi().then(_saveGoals)
   };
