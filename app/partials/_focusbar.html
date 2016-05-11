@@ -1,0 +1,20 @@
+<div ng-controller="GoalsController as controller">
+
+  <div class="btn-group" uib-dropdown keyboard-nav>
+    <button class="btn btn-primary fake-button">Focus on</button>
+    <button id="goal-display" class="btn btn-primary no-hover fake-button">
+      {{controller.priorityGoal.name || "...all my goals"}}
+    </button>
+    <button class="btn btn-primary dropdown-toggle" uib-dropdown-toggle>
+      <span class="caret"></span>
+    </button>
+
+    <ul class="dropdown-menu" uib-dropdown-menu role='menu' aria-labelledby='simple-btn-keyboard-nav'>
+      <li ng-repeat='goal in controller.goals' role='menuitem' ng-click='controller.setPriorityGoal(goal)'>
+        <a>{{goal.name}}</a>
+      </li>
+    </ul>
+
+    <a href="/#/addnewgoal"><i class="glyphicon glyphicon-plus white"></i></a>
+  </div>
+</div>

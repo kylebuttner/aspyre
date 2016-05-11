@@ -1,9 +1,0 @@
-<div id="goal-tasks" ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal()">
-  <ul class="list-unstyled" ng-repeat='task in controller.tasks' ng-if='task.frequency == "daily"'>
-    <li>
-      <input type="checkbox" ng-model="task.completed" ng-change="controller.editTask(task)">
-      <p>{{ task.name }}</p>
-    </li>
-  </ul>
-</div>
-</div>

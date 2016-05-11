@@ -17,6 +17,7 @@ body {
   background-size: cover;
   font-family: 'Open Sans', sans-serif;
   color: #fff;
+  overflow: hidden;
 }
 
 .layer {
@@ -94,13 +95,21 @@ button.btn.btn-primary.fake-button:hover {
 .tasks-container {
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 4px;
-  display: inline-block;
-  margin: 25px 10px 10px 10px;
+  /*display: inline-block;*/
+  margin: 25px 0px;
   padding: 6px 12px;
+  height: 400px;
+  overflow-y: scroll;
+  text-align: left;
 }
 
 .tasks-container h4 {
   font-size: 60%;
+}
+
+.completed-true {
+  text-decoration: line-through;
+  color: grey;
 }
 
 #frequency-title {
@@ -112,9 +121,27 @@ button.btn.btn-primary.fake-button:hover {
   font-size: 50%;
 }
 
+
+
 .list-group-item {
   background-color: transparent;
   border: none;
+}
+
+.edit-goal-inline {
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+}
+
+.edit-goal-inline .editable-click {
+  border-bottom: 0px;
+  font-size: 110%;
+  font-weight: bold;
+}
+
+#goaltasks {
+  margin-bottom: 15px;
 }
 
 input[type="checkbox"] {
@@ -168,20 +195,20 @@ button[type="submit"], button[type="button"], input[type="submit"] {
 }
 
 /* Add new goal */
-.question {
+.centered {
   position: absolute;
   top: 50%;
-  margin-top: -200px;/* half of #content height*/
+  margin-top: -200px;
   left: 0;
   width: 100%;
   text-align: center;
 }
 
-.question h1 {
+.centered .question h1 {
   font-size: 800%;
 }
 
-.question input {
+.centered .question input {
   border-bottom: solid 1px #fff;
   width: 80% !important;
   margin-top: 15px;
