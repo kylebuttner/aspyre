@@ -17,10 +17,9 @@ describe('GoalsController', function() {
 
   describe('CRUD Goal', function() {
     it('when initializing it gets all goals from API', function() {
-      // console.log('response', response);
       spyOn(GoalsService, "getAllFromApi");
       ctrl.getGoalsForUser();
-      expect(GoalsService.getAllFromApi).toHaveBeenCalledWith(GoalObj);
+      expect(GoalsService.getAllFromApi).toHaveBeenCalledWith();
       expect(ctrl.goals).toEqual([]);
     });
 
