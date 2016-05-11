@@ -25,7 +25,6 @@ describe('GoalsService', function() {
 
   it ('fetches a list of goals', function(){
     httpBackend.expectGET(apiURL + "goals.json").respond(goalsData);
-
     GoalsService.getAllFromApi().then(function(goals){
       expect(goals).toContain(goal1, goal2)
     });
