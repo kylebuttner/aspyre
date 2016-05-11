@@ -30,9 +30,11 @@
 </head>
 <body>
 
+
   <div class="layer">
     <div class="container">
-        <section ui-view></section>
+      <div ng-include  src="'../partials/_navbar.html'"></div>
+      <section ui-view></section>
     </div>
   </div>
 

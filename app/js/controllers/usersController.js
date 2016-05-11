@@ -1,6 +1,9 @@
 goalbusterApp.controller('UsersController', ['ipCookie', '$q', '$auth', function(ipCookie, $q, $auth) {
   var self = this;
 
+
+
+
   self.handleBtnClick = function() {
     $auth.authenticate("github");
   };
@@ -15,7 +18,13 @@ goalbusterApp.controller('UsersController', ['ipCookie', '$q', '$auth', function
 
   self.handleLoginBtnClick = function() {
     $auth.submitLogin(self.loginForm);
+
   };
 
+  self.isUserValid = function() {
+    if(!!ipCookie().auth_headers) {
+      return true
+    } else { return false}
+  };
 
 }]);

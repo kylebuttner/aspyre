@@ -1,10 +1,12 @@
 "use strict"
 
-goalbusterApp.controller('GoalsController', ['GoalsService', function(GoalsService) {
+goalbusterApp.controller('GoalsController', ['ipCookie','GoalsService', function(ipCookie,GoalsService) {
   var self = this;
   self.goals = [];
 
   GoalsService.getAllFromApi().then(_saveGoals);
+
+  
 
   self.addNewGoal = function(formObj) {
     GoalsService.postGoalToApi(formObj);
