@@ -23,7 +23,7 @@ describe('GoalsService', function() {
     goal2.completed = false;
   }));
 
-  xit ('fetches a list of goals', function(){
+  it ('fetches a list of goals', function(){
     httpBackend.expectGET(apiURL + "goals.json").respond(goalsData);
     GoalsService.getAllFromApi().then(function(goals){
       expect(goals).toContain(goal1, goal2)
