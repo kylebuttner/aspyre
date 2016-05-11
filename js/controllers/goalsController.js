@@ -1,6 +1,6 @@
 "use strict"
 
-goalbusterApp.controller('GoalsController', ['GoalsService', function(GoalsService) {
+goalbusterApp.controller('GoalsController', ['GoalsService', '$location', function(GoalsService, $location) {
   var self = this;
   self.goals = [];
 
@@ -28,6 +28,11 @@ goalbusterApp.controller('GoalsController', ['GoalsService', function(GoalsServi
   self.getLastGoal = function() {
     return self.goals[self.goals.length-1]
   };
+
+  self.redirectToNewTasks = function() {
+    console.log('heyyyy')
+    $location.url('/addnewtasks')
+  }
 
   function _refreshGoals() {
      GoalsService.getAllFromApi().then(_saveGoals)
