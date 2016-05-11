@@ -11,17 +11,17 @@ goalbusterApp.controller('TasksController', ['TasksService', function(TasksServi
 
   self.addNewTask = function (formObj, goalId) {
     TasksService.postTaskToApi(formObj, goalId);
-    _refreshTasks(goalId);
+    _refreshTasks(goal_id);
     self.taskText='';
   };
 
-  self.editTask = function(taskUpdate, taskId) {
+  self.editTask = function(taskObj) {
     TasksService.editTaskOnApi(taskUpdate, taskId);
   };
 
-  self.deleteTask = function(taskId) {
+  self.deleteTask = function(taskObj) {
     TasksService.deleteTaskOnApi(taskId);
-    _refreshTasks(goalId);
+    _refreshTasks(taskObj.goal_id);
   };
 
   function _refreshTasks(goalId) {

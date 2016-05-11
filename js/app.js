@@ -22,7 +22,7 @@ var goalbusterApp = angular.module('goalbusterApp', [ 'xeditable', 'ngAnimate', 
     });
     $stateProvider
       .state("welcome", {
-        url: "/welcome",
+        url: "/",
         templateUrl: 'views/Welcome.html',
         data: {
           requireLogin: false
@@ -56,7 +56,6 @@ var goalbusterApp = angular.module('goalbusterApp', [ 'xeditable', 'ngAnimate', 
           requireLogin: true
         }
       });
-      $urlRouterProvider.otherwise('/welcome');
 
   }])
 
