@@ -22,7 +22,7 @@
 
       <div id="goaltasks" class="span12" ng-repeat='goal in goalsController.goals | filter:{"id" : goalsController.priorityGoal.id}' ng-show="editingDaily">
         <div class="edit-goal-inline">
-          <span editable-text="goal.name" onaftersave="editGoal(goal)">{{ goal.name }}</span>
+          <span editable-text="goal.name" onaftersave="goalsController.editGoal(goal)">{{ goal.name }}</span>
         </div>
         <div ng-controller='TasksController as controller' ng-init="controller.getTasksForGoal(goal.id)">
           <ul class="list-unstyled" ng-repeat='task in controller.tasks' ng-if='task.frequency == "daily"'>
@@ -32,9 +32,11 @@
               <a class="pull-right" ng-click="controller.deleteTask(task)"><i class="glyphicon glyphicon-remove white"></i></a>
             </li>
           </ul>
-          <div ng-model="task.frequency" ng-init="task.frequency='daily'">
-            <input type="text"  editable-text="task.name" onaftersave="controller.addNewTask(task, goal.id)" placeholder="Add a task"></input>
-          </div>
+          <form name='controller.newTaskForm' novalidate ng-submit="controller.addNewTask(task, goal.id); task = {}">
+            <input type="hidden" ng-model="task.frequency" ng-value="task.frequency='daily'">
+            <input type="text" ng-model='task.name' placeholder="Add a task">
+            <input class="btn-primary" type="submit">
+          </form>
         </div>
       </div>
     </div>

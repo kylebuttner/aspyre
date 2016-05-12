@@ -33,6 +33,14 @@ body {
   color: white;
 }
 
+a {
+  color: #fff;
+}
+
+a:hover {
+  color: #fff;
+}
+
 /* Welcome partial */
 
 #tasks-remaining {

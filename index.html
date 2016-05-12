@@ -22,17 +22,25 @@
   <script type="text/javascript" src="js/controllers/goalsController.js"></script>
   <script type="text/javascript" src="js/controllers/tasksController.js"></script>
   <script type="text/javascript" src="js/controllers/usersController.js"></script>
+  <script type="text/javascript" src="js/controllers/featuresController.js"></script>
   <script type="text/javascript" src="js/factories/goalsFactory.js"></script>
   <script type="text/javascript" src="js/factories/tasksFactory.js"></script>
   <script type="text/javascript" src="js/services/goalsService.js"></script>
   <script type="text/javascript" src="js/services/tasksService.js"></script>
+  <script type="text/javascript" src="js/services/featuresService.js"></script>
+
 
 </head>
 <body>
 
+
   <div class="layer">
     <div class="container">
-        <section ui-view></section>
+      <div class="question" ng-controller='GoalsController as goalsController'>
+      <div ng-include  src="'../partials/_navbar.html'"></div>
+      <div ng-include  src="'../partials/_features.html'"></div>
+    </div>
+      <section ui-view></section>
     </div>
   </div>
 
