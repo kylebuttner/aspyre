@@ -32,9 +32,11 @@
               <a class="pull-right" ng-click="controller.deleteTask(task)"><i class="glyphicon glyphicon-remove white"></i></a>
             </li>
           </ul>
-          <div ng-model="task.frequency" ng-init="task.frequency='daily'">
-            <input type="text"  editable-text="task.name" onbeforesave="controller.addNewTask(task, goal.id)" placeholder="Add a task"></input>
-          </div>
+          <form name='controller.newTaskForm' novalidate ng-submit="controller.addNewTask(task, goal.id); task = {}">
+            <input type="hidden" ng-model="task.frequency" ng-value="task.frequency='daily'">
+            <input type="text" ng-model='task.name' placeholder="Add a task">
+            <input class="btn-primary" type="submit">
+          </form>
         </div>
       </div>
     </div>
