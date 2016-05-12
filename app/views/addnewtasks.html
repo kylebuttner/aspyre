@@ -1,0 +1,17 @@
+<div class="centered">
+  <div class="question" ng-controller='GoalsController as goalsController'>
+    <h1>What should you do every day to achieve that goal?</h1>
+
+    <div class="container" ng-value="lastGoal=goalsController.getLastGoal()" ng-controller='TasksController as tasksController'>
+      <div ng-repeat="task in tasksController.tasks" ng-init="goalsController.getLastGoal(lastGoal.id)">
+        {{task.name}}
+        <a class="pull-right" ng-click="tasksController.deleteTask(task)"><i class="glyphicon glyphicon-remove white"></i></a>
+      </div>
+      <input type="text"  ng-model="task.name" ng-enter="tasksController.addNewTask(task, lastGoal.id); task.name=''; console.log('yes')"></input>
+    </div>
+
+
+    <br>
+    <a href="/#/home">That's it!</a>
+  </div>
+</div>

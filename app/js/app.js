@@ -55,6 +55,12 @@ var goalbusterApp = angular.module('goalbusterApp', [ 'xeditable', 'ngAnimate', 
         data: {
           requireLogin: true
         }
+      }).state("add new tasks", {
+        url: "/addnewtasks",
+        templateUrl: 'views/addnewtasks.html',
+        data: {
+          requireLogin: true
+        }
       });
 
   }])
