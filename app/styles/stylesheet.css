@@ -182,10 +182,26 @@ input[type="checkbox"] {
   margin: 0px 5px;
 }
 
-input[type="text"] {
+input[type="text"], input[type="email"], input[type="password"] {
   background-color: transparent;
   border: none;
   outline: none;
+  color: #fff;
+}
+
+.form-control {
+  display: initial;
+  height: initial;
+  outline: initial;
+  box-shadow: initial;
+}
+
+.form-control:focus {
+  display: initial;
+  height: initial;
+  border-color: initial;
+  box-shadow: initial;
+  outline: initial;
 }
 
 .editable-wrap {
