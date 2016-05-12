@@ -18,7 +18,7 @@ goalbusterApp.controller('TasksController', ['TasksService', function(TasksServi
       if (task.id === taskObj.id) {
         task === taskObj
       }
-    })
+    });
   };
 
   self.deleteTask = function(taskObj) {

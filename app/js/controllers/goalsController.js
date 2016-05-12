@@ -8,17 +8,27 @@ goalbusterApp.controller('GoalsController', ['GoalsService', '$location', functi
 
   self.addNewGoal = function(formObj) {
     GoalsService.postGoalToApi(formObj);
-    _refreshGoals();
-    self.goalText='';
+    self.goals.push(formObj);
   };
 
   self.editGoal = function(goalObj) {
     GoalsService.editGoalInApi(goalObj);
+    self.goals.forEach(function(goal){
+      if (goal.id === goalObj.id) {
+        goal === goalObj
+      }
+    });
   };
 
- self.deleteGoal = function(goalId) {
+ self.deleteGoal = function(goalObj) {
     GoalsService.deleteGoalOnApi(goalId);
-    _refreshGoals();
+    var goalIndex;
+    for (var i=0;i<self.goals.length;i++) {
+      if (self.goals[i].id === goalObj.id) {
+        goalObj = i;
+      }
+    };
+    self.tasks.splice(goalIndex,1)
   };
 
   self.setPriorityGoal = function(goal) {
@@ -32,11 +42,7 @@ goalbusterApp.controller('GoalsController', ['GoalsService', '$location', functi
   self.redirectToNewTasks = function() {
     $location.url('/addnewtasks')
   }
-
-  function _refreshGoals() {
-     GoalsService.getAllFromApi().then(_saveGoals)
-  };
-
+  
   function _saveGoals(response) {
     self.goals = response;
   };
