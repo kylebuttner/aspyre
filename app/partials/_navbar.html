@@ -1,5 +1,7 @@
-LOGO!
+<div class="pull-left">
+  <h1>Aspyre</h1>
+</div>
 
-<div id="login" ng-controller='UsersController as controller'>
-    <button ng-show="controller.isUserValid()" class="btn btn-primary btn-lg" ng-click='signOut()'>Sign out</button>
+<div id="sign-out-link" class="pull-right" ng-controller='UsersController as controller'>
+  <a ng-show="controller.isUserValid()" ng-click="signOut()">Sign out</a>
 </div>
