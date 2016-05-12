@@ -1,22 +1,22 @@
-<div id="login" ng-model="hide1; hide2" ng-controller='UsersController as controller'>
+<div id="login" ng-controller='UsersController as controller'>
 
   <!-- <div class="form-group">
     <button ng-click="authenticate('github')">Sign in with Github</button>
   </div> -->
 
-  <form ng-submit="submitRegistration(registrationForm)" role="form" ng-init="registrationForm = {}">
+  <form ng-submit="controller.submitRegistration(registrationForm)" role="form" ng-init="registrationForm = {}">
 
-    <div class="centered" class="question" ng-hide="hide1" ng-mode="readyToSubmit">
+    <div class="centered" class="question" ng-hide="hide1" ng-model="readyToSubmit">
       <label>Please enter your email</label>
-      <input type="email" name="email" ng-model="registrationForm.email" required="required" class="form-control" ng-enter="hide1=!hide1"/>
-    </div>
-
-    <div class="centered" class="question" ng-show="hide1">
-      <label>Please enter your password</label>
-      <input type="password" name="password" ng-model="registrationForm.password" required="required" class="form-control" ng-enter="readyToSubmit=!readyToSubmit; hide1=!hide1; hide2=!hide2"/>
+      <input type="email" name="email" ng-model="registrationForm.email" required="required" class="form-control" ng-enter="hide1=!hide1; hide2=!hide2"/>
     </div>
 
     <div class="centered" class="question" ng-show="hide2">
+      <label>Please enter your password</label>
+      <input type="password" name="password" ng-model="registrationForm.password" required="required" class="form-control" ng-enter="readyToSubmit=!readyToSubmit; hide3=!hide3; hide2=!hide2"/>
+    </div>
+
+    <div class="centered" class="question" ng-show="hide3">
       <label>Please confirm your password</label>
       <input type="password" name="password_confirmation" ng-model="registrationForm.password_confirmation" required="required" class="form-control"/>
     </div>
