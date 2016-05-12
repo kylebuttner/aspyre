@@ -1,5 +1,7 @@
 <div id="login" ng-model="hide1" ng-controller='UsersController as controller'>
+
   <form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
+
     <div class="centered" class="question" ng-hide="hide1" ng-mode="readyToSubmit">
       <h1>Please enter your email</h1>
       <input type="email" name="email" ng-model="loginForm.email" required="required" class="form-control" ng-enter="readyToSubmit=!readyToSubmit; hide1=!hide1"/>
@@ -11,6 +13,7 @@
     </div>
 
     <button type="submit" ng-disabled="!readyToSubmit" class="btn btn-primary btn-lg">Sign in</button>
+
   </form>
 </div>
 
