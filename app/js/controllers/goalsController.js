@@ -44,6 +44,8 @@ goalbusterApp.controller('GoalsController', ['ipCookie','GoalsService', '$locati
   }
 
   function _saveGoals(response) {
-    self.goals = response;
+    response.forEach(function(goal){
+      self.goals.push(goal);
+    });
   };
 }]);
