@@ -30,8 +30,12 @@
 </head>
 <body>
 
+
   <div class="layer">
     <div class="container">
+    <div ng-include  src="'../partials/_navbar.html'"></div>
+    <div class="question" ng-controller='GoalsController as goalsController'>
+    </div>
         <section ui-view></section>
     </div>
   </div>

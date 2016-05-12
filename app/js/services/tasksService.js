@@ -4,7 +4,7 @@ goalbusterApp.service('TasksService',['TasksFactory', '$http', function(TasksFac
   self = this;
 
   self.getAllFromApi = function(goalId){
-    if (goalId !== undefined) {
+    if (!!goalId) {
         return $http.get('https://goalbuster-api.herokuapp.com/goals/' + goalId +'/tasks.json')
     .then(_handleResponseFromApi);
     } else {
