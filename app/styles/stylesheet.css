@@ -41,6 +41,14 @@ a:hover {
   color: #fff;
 }
 
+/* Navbar */
+
+#sign-out-link {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  padding: 15px;
+}
+
 /* Welcome partial */
 
 #tasks-remaining {
