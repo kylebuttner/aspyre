@@ -1,4 +1,4 @@
-goalbusterApp.controller('UsersController', ['ipCookie', '$q', '$auth', function(ipCookie, $q, $auth) {
+goalbusterApp.controller('UsersController', ['ipCookie', '$q', '$auth','$location', function(ipCookie, $q, $auth, $location) {
   var self = this;
 
   self.handleBtnClick = function() {
@@ -15,13 +15,16 @@ goalbusterApp.controller('UsersController', ['ipCookie', '$q', '$auth', function
 
   self.handleLoginBtnClick = function() {
     $auth.submitLogin(self.loginForm);
-
   };
 
   self.isUserValid = function() {
-    if(!!ipCookie().auth_headers) {
+    if(!!ipCookie()) {
       return true
     } else { return false}
   };
+
+  self.redirectToHome = function() {
+    $location.url('/home')
+  }
 
 }]);
