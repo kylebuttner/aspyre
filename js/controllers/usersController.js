@@ -6,6 +6,7 @@ goalbusterApp.controller('UsersController', ['ipCookie', '$q', '$auth', function
   };
 
   self.handleRegBtnClick = function() {
+    console.log(self.registrationForm);
     $auth.submitRegistration(self.registrationForm);
   };
 
