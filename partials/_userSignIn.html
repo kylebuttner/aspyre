@@ -1,20 +1,20 @@
-<div id="login" ng-model="hide1" ng-controller='UsersController as controller'>
+<div class="centered" ng-model="hide1" ng-controller='UsersController as controller'>
 
   <form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
 
-    <div class="centered" class="question" ng-hide="hide1" ng-model="readyToSubmit">
-      <h1>Please enter your email</h1>
+    <div class="question" ng-hide="hide1" ng-model="readyToSubmit">
+      <h1>What's your email?</h1>
       <input type="email" name="email" ng-model="loginForm.email" required="required" class="form-control" ng-enter="readyToSubmit=!readyToSubmit; hide1=!hide1"/>
     </div>
 
-    <div class="centered" class="question" ng-show="hide1">
+    <div class="question" ng-show="hide1">
       <h1>Please enter your password</h1>
       <input type="password" name="password" ng-model="loginForm.password" required="required" class="form-control"/>
     </div>
 
     <button type="submit" ng-disabled="!readyToSubmit" class="btn btn-primary btn-lg">Sign in</button>
+    <br>
+    <a href="/#/">Wait, I need to sign up first!</a>
 
   </form>
 </div>
-
-  <button class="btn btn-primary btn-sm" onclick="window.location.href='/#/'">Back</button>
