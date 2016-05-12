@@ -56,6 +56,6 @@ describe('TasksService', function() {
       expect(response.status).toEqual(204);
     });
     httpBackend.flush();
-  })
+  });
 
 });
