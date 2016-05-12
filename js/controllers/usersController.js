@@ -16,7 +16,13 @@ goalbusterApp.controller('UsersController', ['ipCookie', '$q', '$auth', function
 
   self.handleLoginBtnClick = function() {
     $auth.submitLogin(self.loginForm);
+
   };
 
+  self.isUserValid = function() {
+    if(!!ipCookie().auth_headers) {
+      return true
+    } else { return false}
+  };
 
 }]);

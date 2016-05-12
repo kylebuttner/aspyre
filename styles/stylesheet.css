@@ -33,6 +33,14 @@ body {
   color: white;
 }
 
+a {
+  color: #fff;
+}
+
+a:hover {
+  color: #fff;
+}
+
 /* Welcome partial */
 
 #tasks-remaining {
@@ -110,6 +118,14 @@ button.btn.btn-primary.fake-button:hover {
   max-height: 300px;
   overflow-y: scroll;
   text-align: left;
+}
+
+.task-container-header a i {
+  font-size: 150%;
+}
+
+.task-container-header a {
+  color: #fff;
 }
 
 .tasks-container h4 {
