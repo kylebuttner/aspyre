@@ -3,14 +3,15 @@
   <div class="btn-group" uib-dropdown keyboard-nav>
     <button class="btn btn-primary fake-button">Focus on</button>
     <button id="goal-display" class="btn btn-primary no-hover fake-button">
-      {{goalsController.priorityGoal.name || "...all my goals"}}
+      {{goalsController.priorityGoal.name || 'all of my goals'}}
     </button>
     <button class="btn btn-primary dropdown-toggle" uib-dropdown-toggle>
       <span class="caret"></span>
     </button>
 
     <ul class="dropdown-menu" uib-dropdown-menu role='menu' aria-labelledby='simple-btn-keyboard-nav'>
-      <li ng-repeat='goal in goalsController.goals' role='menuitem' ng-click='goalsController.setPriorityGoal(goal)'>
+      <li ng-show="goalsController.priorityGoal.id" role='menuitem' ng-click="goalsController.priorityGoal.id=''"><a>all of my goals</a></li>
+      <li ng-repeat='goal in goalsController.goals' ng-click='goalsController.setPriorityGoal(goal)'>
         <a>{{goal.name}}</a>
       </li>
     </ul>
