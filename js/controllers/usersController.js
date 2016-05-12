@@ -23,6 +23,8 @@ goalbusterApp.controller('UsersController', ['ipCookie', '$q', '$auth', function
   };
 
   self.isUserValid = function() {
+    console.log('something');
+    console.log(ipCookie().auth_headers);
     if(!!ipCookie().auth_headers) {
       return true
     } else { return false}
