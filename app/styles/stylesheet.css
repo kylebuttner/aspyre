@@ -3,6 +3,8 @@
 h1 {
   font-family: 'Raleway', sans-serif;
   padding: 15px;
+  font-size: 600%;
+
 }
 
 /*#login {
@@ -39,6 +41,29 @@ a {
 
 a:hover {
   color: #fff;
+}
+
+/*#signin-email {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  width: 40%;
+  align-items: center;
+  margin: 0 auto;
+  color: white;
+
+
+}*/
+
+#signin-pw {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  width: 40%;
+  align-items: center;
+  margin: 0 auto;
+  color: white;
+
 }
 
 /* Welcome partial */
@@ -173,7 +198,7 @@ input[type="checkbox"] {
   margin: 0px 5px;
 }
 
-input[type="text"] {
+input[type="text"], input[type="email"] {
   background-color: transparent;
   border: none;
   outline: none;

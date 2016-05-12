@@ -3,13 +3,13 @@
   <form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
 
     <div class="centered" class="question" ng-hide="hide1" ng-model="readyToSubmit">
-      <h1>Please enter your email</h1>
-      <input type="email" name="email" ng-model="loginForm.email" required="required" class="form-control" ng-enter="readyToSubmit=!readyToSubmit; hide1=!hide1"/>
+      <h1>What's your email address?</h1>
+      <input id="signin-email" type="email" name="email" ng-model="loginForm.email" required="required" class="form-control" ng-enter="readyToSubmit=!readyToSubmit; hide1=!hide1"/>
     </div>
 
     <div class="centered" class="question" ng-show="hide1">
-      <h1>Please enter your password</h1>
-      <input type="password" name="password" ng-model="loginForm.password" required="required" class="form-control"/>
+      <h1>What's your password?</h1>
+      <input id="signin-pw" type="password" name="password" ng-model="loginForm.password" required="required" class="form-control"/>
     </div>
 
     <button type="submit" ng-disabled="!readyToSubmit" class="btn btn-primary btn-lg">Sign in</button>
