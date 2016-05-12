@@ -8,7 +8,7 @@ goalbusterApp.service('FeaturesService',['$http', function($http){
   city:'london'}
   
 
-  return $http.jsonp(apiCall.url +  apiCall.token, { params : {
+  return $http.jsonp(apiCall.url + apiCall.token, { params : {
     q : apiCall.city,
     units : apiCall.units,
     callback: 'JSON_CALLBACK'
