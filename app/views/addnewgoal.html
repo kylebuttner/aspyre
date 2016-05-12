@@ -3,7 +3,7 @@
 
       <form novalidate>
         <h1 ng-hide="hide1">What do you want to work on?</h1>
-        <input type="text" ng-hide="hide1" ng-model="goal.name" placeholder="{{goal.name}}" ng-enter="goalsController.addNewGoal(goal); goalsController.redirectToNewTasks()">
+        <input type="text" ng-hide="hide1" ng-model="goal.name" placeholder="{{goal.name}}" ng-enter="goalsController.addNewGoal(goal); goalsController.redirectToHome()">
       </form>
       <br>
       <a href="/#/home">Never mind, I have enough on my plate!</a>
