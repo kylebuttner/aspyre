@@ -43,6 +43,10 @@ goalbusterApp.controller('GoalsController', ['ipCookie','GoalsService', '$locati
     $location.url('/addnewtasks')
   }
 
+  self.redirectToHome = function() {
+    $location.url('/home')
+  }
+
   function _saveGoals(response) {
     response.forEach(function(goal){
       self.goals.push(goal);
