@@ -215,9 +215,9 @@ input[type="text"] {
   border-bottom-color: #2a6496;
 }
 
-/*button[type="submit"], button[type="button"], input[type="submit"] {
+button[type="submit"], button[type="button"], input[type="submit"] {
   display: none;
-}*/
+}
 
 /* Add new goal */
 .centered {
