@@ -1,15 +1,18 @@
-<div class="pull-left">
-  <h1>Aspyre</h1>
-</div>
+<div ng-controller='UsersController as usersController'>
+  <div ng-show="usersController.isUserValid()" class="pull-left">
+    <h1>Aspyre</h1>
+  </div>
 
-<div class="pull-right" id="right-side-of-navbar" ng-controller='FeaturesController as controller' ng-init="controller.weather()">
+  <div ng-show="usersController.isUserValid()" class="pull-right" id="right-side-of-navbar" ng-controller='FeaturesController as controller' ng-init="controller.weather()">
 
-  <a><i class="glyphicon glyphicon-cloud white"></i>&nbsp</a>
-  {{controller.city}}
-  {{controller.temp}}
+    <a><i class="glyphicon glyphicon-cloud white"></i>&nbsp</a>
+    {{controller.city}}
+    {{controller.temp}}
 
-  <div id="sign-out-link" ng-controller='UsersController as controller'>
-    <a ng-show="controller.isUserValid()" ng-click="signOut()">Sign out</a>
+    <div ng-show="usersController.isUserValid()" id="sign-out-link">
+      <a ng-click="signOut()">Sign out</a>
+    </div>
+
   </div>
 
 </div>
