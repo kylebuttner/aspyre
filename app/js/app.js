@@ -19,6 +19,12 @@ var goalbusterApp = angular.module('goalbusterApp', [ 'xeditable', 'ngAnimate', 
        authProviderPaths: {
          github: '/auth/github'
        }
+      // ,
+
+      // tokenFormat: {
+      //   "Authorization": "token={{ token }} expiry={{ expiry }} uid={{ uid }}",
+      //    "name" : "name={{ name }}"
+      // }
     });
     $stateProvider
       .state("welcome", {
