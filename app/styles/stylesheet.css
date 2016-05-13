@@ -41,6 +41,15 @@ a:hover {
   color: #fff;
 }
 
+.fade {
+  animation-delay: 0.2s !important;
+  -webkit-animation-delay: 0.2s !important;
+  -moz-animation-delay: 0.2s !important;
+  -o-animation-delay: 0.2s !important;
+  -webkit-transition-delay:0.2s;
+  transition-delay:0.2s;
+}
+
 /* Navbar */
 
 #sign-out-link {
@@ -70,6 +79,8 @@ a:hover {
   background-color: transparent !important;
   border-color: #fff !important;
   outline: 0 !important;
+  height: 50px;
+  font-size: 150%;
 }
 
 .btn-primary:hover {
@@ -108,7 +119,7 @@ button.btn.btn-primary.fake-button:hover {
 
 .btn-group a {
   padding-left: 20px;
-  font-size: 170%;
+  font-size: 200%;
 }
 
 /* Tasks */

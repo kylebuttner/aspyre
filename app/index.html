@@ -34,7 +34,7 @@
 <body>
 
 
-  <div class="layer">
+  <div class="layer fade" ng-init="ngLoaded = true" ng-class="{ in: ngLoaded }">
     <div class="container">
       <div ng-include  src="'../partials/_navbar.html'"></div>
       <!-- <div ng-include  src="'../partials/_features.html'"></div> -->
