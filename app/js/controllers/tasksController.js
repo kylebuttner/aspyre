@@ -36,4 +36,12 @@ goalbusterApp.controller('TasksController', ['TasksService', function(TasksServi
     self.tasks = response;
   };
 
+  self.tasksLeft = function() {
+    return TasksService.getAllFromApi().then(_saveAllTasks)
+  }
+
+  function _saveAllTasks(response) {
+    self.tasksCount = (response.length)
+  };
+
 }]);

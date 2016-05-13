@@ -18,11 +18,16 @@ goalbusterApp.controller('UsersController', ['ipCookie', '$q', '$auth','$locatio
   };
 
   self.isUserValid = function() {
-    if(!!ipCookie()) {
+    if(!!ipCookie().auth_headers && !!ipCookie().auth_headers.expiry) {
       return true
     } else { return false}
   };
 
+  self.userName = function() {
+    if(!!ipCookie().auth_headers && !!ipCookie().auth_headers.expiry){
+      console.log(ipCookie())
+    }
+  }
   self.redirectToHome = function() {
     $location.url('/home')
   }
