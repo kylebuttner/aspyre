@@ -60,12 +60,42 @@ a:hover {
 
 /* Welcome partial */
 
+#welcome_title {
+  font-size: 800%;
+}
+#welcome_tagline {
+  font-size: 300%;
+}
+
 #tasks-remaining {
   font-size: 800%;
   display:flex;
   justify-content:center;
   align-items:center;
   position: relative;
+}
+#button-div {
+  text-align: center;
+  margin: 0 auto;
+}
+
+#sign_in_button {
+height:200px;
+ width:400px;
+ /*margin: 100px 60px;
+ position:relative;
+ top:10%;
+ left:50%;*/
+ font-size: 300%
+}
+#sign_up_button {
+height:200px;
+ width:400px;
+ /*margin: -100px 60px;
+ position:relative;
+ top:10%;
+ left:-30%;*/
+ font-size: 300%
 }
 
 /* Focus on */
