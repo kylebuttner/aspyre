@@ -52,10 +52,15 @@ a:hover {
 
 /* Navbar */
 
-#sign-out-link {
+#right-side-of-navbar {
   margin-top: 25px;
   margin-bottom: 10px;
   padding: 15px;
+}
+
+#sign-out-link {
+  margin-top: 5px;
+  text-align: right;
 }
 
 /* Welcome partial */
