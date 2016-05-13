@@ -2,6 +2,14 @@
   <h1>Aspyre</h1>
 </div>
 
-<div id="sign-out-link" class="pull-right" ng-controller='UsersController as controller'>
-  <a ng-show="controller.isUserValid()" ng-click="signOut()">Sign out</a>
+<div class="pull-right" id="right-side-of-navbar" ng-controller='FeaturesController as controller' ng-init="controller.weather()">
+
+  <a><i class="glyphicon glyphicon-cloud white"></i>&nbsp</a>
+  {{controller.city}}
+  {{controller.temp}}
+
+  <div id="sign-out-link" ng-controller='UsersController as controller'>
+    <a ng-show="controller.isUserValid()" ng-click="signOut()">Sign out</a>
+  </div>
+
 </div>
