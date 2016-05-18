@@ -1,6 +1,6 @@
 <div id="login" ng-controller='UsersController as controller'>
 
-  <form ng-submit="submitRegistration(registrationForm); controller.redirectToHome()" role="form" ng-init="registrationForm = {}">
+  <form ng-submit="submitRegistration(registrationForm)" role="form" ng-init="registrationForm = {}">
 
     <div class="centered" class="question" ng-hide="hide1" ng-model="readyToSubmit">
       <label>What is your name?</label>
