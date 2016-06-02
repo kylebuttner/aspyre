@@ -3,6 +3,8 @@ Aspyre is a simple, beautiful Chrome extension designed to help users keep track
 
 There is also a [separate Rails API backend](https://github.com/kylebuttner/aspyre-api).
 
+[Click here](https://www.facebook.com/caspar.fischerzernin/videos/vb.1610940054/10206035280073654/?type=2&theater) for a short video demo!
+
 ![screenshot](http://i.imgur.com/9pG4gbJ.jpg)
 
 ## Installation
